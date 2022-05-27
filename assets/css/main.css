@@ -2,4 +2,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.clock {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=main.css.map */

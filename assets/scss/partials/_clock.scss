@@ -1,0 +1,5 @@
+@use './mixins' as *;
+
+.clock {
+  @include center-screen;
+}
