@@ -21,14 +21,16 @@
 
 .quote {
   left: 50%;
-  top: 95%;
+  bottom: 0;
   position: absolute;
+  margin: 1em;
   transform: translate(-50%, -50%);
 }
 
 .todo {
-  left: 95%;
-  top: 95%;
+  right: 0;
+  bottom: 0;
   position: absolute;
+  margin: 1em;
   transform: translate(-50%, -50%);
 }/*# sourceMappingURL=main.css.map */
