@@ -4,15 +4,18 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
   font-family: "Lato", sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .center-container {
   left: 50%;
-  top: 45%;
+  top: 40%;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -28,16 +31,23 @@ body {
 .clock div {
   text-align: center;
 }
+.clock div h1 {
+  font-size: 20vmin;
+}
 
 .name {
+  margin-top: 4rem;
   left: 50%;
-  top: 55%;
+  top: 60%;
   position: absolute;
   transform: translate(-50%, -50%);
   width: 100%;
 }
 .name div {
   text-align: center;
+}
+.name div h1 {
+  font-size: 8vmin;
 }
 
 .quote {
@@ -50,6 +60,10 @@ body {
 .quote div {
   text-align: center;
 }
+.quote div p {
+  font-size: 1.6rem;
+  font-style: italic;
+}
 
 .todo {
   right: 0;
@@ -58,10 +72,17 @@ body {
   margin: 1rem;
   transform: translate(-50%, -50%);
 }
+.todo a {
+  color: white;
+  font-size: 1.6rem;
+}
+.todo a:hover {
+  text-decoration: underline;
+}
 
 .focus-input, .focus {
   left: 50%;
-  top: 60%;
+  top: 80%;
   width: 100%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -71,10 +92,17 @@ body {
   text-align: center;
   width: 100%;
 }
+.focus div p {
+  font-size: 6vmin;
+}
 
 .focus-input {
-  top: 65%;
+  margin-top: 2rem;
+  top: 85%;
 }
 .focus-input div {
   text-align: center;
+}
+.focus-input div p {
+  font-size: 6vmin;
 }/*# sourceMappingURL=main.css.map */

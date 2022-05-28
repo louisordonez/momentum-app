@@ -2,7 +2,7 @@
 
 %focus-position {
   left: 50%;
-  top: 60%;
+  top: 80%;
   width: 100%;
   @include center-screen;
 }
@@ -13,14 +13,23 @@
   div {
     text-align: center;
     width: 100%;
+
+    p {
+      font-size: 6vmin;
+    }
   }
 }
 
 .focus-input {
   @extend %focus-position;
-  top: 65%;
+  margin-top: 2rem;
+  top: 85%;
 
   div {
     text-align: center;
+
+    p {
+      font-size: 6vmin;
+    }
   }
 }
