@@ -4,4 +4,9 @@
   left: 50%;
   top: 55%;
   @include center-screen;
+  width: 100%;
+
+  div {
+    text-align: center;
+  }
 }

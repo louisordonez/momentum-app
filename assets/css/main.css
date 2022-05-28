@@ -1,7 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
   box-sizing: border-box;
+}
+
+.center-container {
+  left: 50%;
+  top: 45%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .clock {
@@ -10,12 +20,19 @@
   position: absolute;
   transform: translate(-50%, -50%);
 }
+.clock div {
+  text-align: center;
+}
 
 .name {
   left: 50%;
   top: 55%;
   position: absolute;
   transform: translate(-50%, -50%);
+  width: 100%;
+}
+.name div {
+  text-align: center;
 }
 
 .quote {
@@ -24,6 +41,9 @@
   position: absolute;
   margin: 1rem;
   transform: translate(-50%, -50%);
+}
+.quote div {
+  text-align: center;
 }
 
 .todo {
@@ -34,14 +54,22 @@
   transform: translate(-50%, -50%);
 }
 
-.focus, .focus-input {
+.focus-input, .focus {
   left: 50%;
   top: 60%;
-  margin: 1rem;
+  width: 100%;
   position: absolute;
   transform: translate(-50%, -50%);
 }
 
+.focus div {
+  text-align: center;
+  width: 100%;
+}
+
 .focus-input {
   top: 65%;
+}
+.focus-input div {
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

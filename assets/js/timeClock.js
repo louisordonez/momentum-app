@@ -2,7 +2,7 @@ const clockElement = document.querySelector('[data-clock]')
 
 function showTime() {
   let currentDate = new Date()
-  //   let currentTime = currentDate.toLocaleTimeString([], {
+  // let currentTime = currentDate.toLocaleTimeString([], {
   //   hour: '2-digit',
   //   minute: '2-digit',
   // })

@@ -1,13 +1,26 @@
 @use './mixins' as *;
 
-.focus {
+%focus-position {
   left: 50%;
   top: 60%;
-  margin: 1rem;
+  width: 100%;
   @include center-screen;
 }
 
+.focus {
+  @extend %focus-position;
+
+  div {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 .focus-input {
-  @extend .focus;
+  @extend %focus-position;
   top: 65%;
+
+  div {
+    text-align: center;
+  }
 }
