@@ -7,6 +7,10 @@
   @include center-screen;
 }
 
+%focus-text-size {
+  font-size: 4.2vmin;
+}
+
 .focus {
   @extend %focus-position;
 
@@ -15,7 +19,7 @@
     width: 100%;
 
     p {
-      font-size: 6vmin;
+      @extend %focus-text-size;
     }
   }
 }
@@ -29,7 +33,7 @@
     text-align: center;
 
     p {
-      font-size: 6vmin;
+      @extend %focus-text-size;
     }
   }
 }

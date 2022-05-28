@@ -88,21 +88,18 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.focus-input div p, .focus div p {
+  font-size: 4.2vmin;
+}
+
 .focus div {
   text-align: center;
   width: 100%;
 }
-.focus div p {
-  font-size: 6vmin;
-}
-
 .focus-input {
   margin-top: 2rem;
   top: 85%;
 }
 .focus-input div {
   text-align: center;
-}
-.focus-input div p {
-  font-size: 6vmin;
 }/*# sourceMappingURL=main.css.map */
