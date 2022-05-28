@@ -1,5 +1,7 @@
 @use './mixins' as *;
 
 .clock {
+  left: 50%;
+  top: 50%;
   @include center-screen;
 }
