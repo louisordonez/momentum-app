@@ -1,0 +1,6 @@
+@use './mixins' as *;
+
+.user-name {
+  @include center-screen;
+  margin-top: 2em;
+}

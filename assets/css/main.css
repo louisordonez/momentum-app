@@ -1,4 +1,4 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,6 +7,28 @@ body {
 .clock {
   left: 50%;
   top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.user-name {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-top: 2em;
+}
+
+.quote {
+  left: 50%;
+  top: 95%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.todo {
+  left: 95%;
+  top: 95%;
   position: absolute;
   transform: translate(-50%, -50%);
 }/*# sourceMappingURL=main.css.map */
