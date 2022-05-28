@@ -11,19 +11,18 @@
   transform: translate(-50%, -50%);
 }
 
-.user-name {
+.name {
   left: 50%;
-  top: 50%;
+  top: 55%;
   position: absolute;
   transform: translate(-50%, -50%);
-  margin-top: 2em;
 }
 
 .quote {
   left: 50%;
   bottom: 0;
   position: absolute;
-  margin: 1em;
+  margin: 1rem;
   transform: translate(-50%, -50%);
 }
 
@@ -31,6 +30,18 @@
   right: 0;
   bottom: 0;
   position: absolute;
-  margin: 1em;
+  margin: 1rem;
   transform: translate(-50%, -50%);
+}
+
+.focus, .focus-input {
+  left: 50%;
+  top: 60%;
+  margin: 1rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.focus-input {
+  top: 65%;
 }/*# sourceMappingURL=main.css.map */

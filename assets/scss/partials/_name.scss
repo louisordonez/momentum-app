@@ -1,8 +1,7 @@
 @use './mixins' as *;
 
-.user-name {
+.name {
   left: 50%;
-  top: 50%;
+  top: 55%;
   @include center-screen;
-  margin-top: 2em;
 }
