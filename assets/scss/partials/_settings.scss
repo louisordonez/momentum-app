@@ -1,5 +1,9 @@
 .settings {
-  div {
-    margin: 1rem;
+  position: relative;
+  z-index: 1;
+  margin: 1rem;
+
+  a {
+    font-size: 24px;
   }
 }

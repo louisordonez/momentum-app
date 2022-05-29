@@ -32,7 +32,11 @@
   div {
     text-align: center;
 
-    p {
+    input[type='text'] {
+      background: none;
+      border: none;
+      border-bottom: 2px solid white;
+      color: white;
       @extend %focus-text-size;
     }
   }

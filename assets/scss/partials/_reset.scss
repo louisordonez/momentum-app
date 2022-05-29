@@ -1,7 +1,35 @@
+@use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
   font-size: 62.5%;
+}
+
+body {
+  font-family: $font-stack;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url('../img/bg-1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+a {
+  color: white;
+}
+
+input,
+textarea,
+select {
+  font-family: $font-stack;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }

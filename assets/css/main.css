@@ -17,8 +17,28 @@ body {
   background-size: cover;
 }
 
-.settings div {
+a {
+  color: white;
+}
+
+input,
+textarea,
+select {
+  font-family: "Lato", sans-serif;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.settings {
+  position: relative;
+  z-index: 1;
   margin: 1rem;
+}
+.settings a {
+  font-size: 24px;
 }
 
 .center-container {
@@ -77,15 +97,7 @@ body {
   right: 0;
   bottom: 0;
   position: absolute;
-  margin: 1rem;
   transform: translate(-50%, -50%);
-}
-.todo a {
-  color: white;
-  font-size: 1.6rem;
-}
-.todo a:hover {
-  text-decoration: underline;
 }
 
 .focus-input, .focus {
@@ -96,7 +108,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.focus-input div p, .focus div p {
+.focus-input div input[type=text], .focus div p {
   font-size: 4.2vmin;
 }
 
@@ -110,4 +122,10 @@ body {
 }
 .focus-input div {
   text-align: center;
+}
+.focus-input div input[type=text] {
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
