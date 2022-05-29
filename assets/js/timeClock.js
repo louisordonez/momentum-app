@@ -7,7 +7,6 @@ function showTime() {
     minute: '2-digit',
   })
   currentTime = currentTime.replace('AM', '').replace('PM', '')
-  // let currentTime = currentDate.toLocaleTimeString()
   clockElement.textContent = currentTime
 }
 
