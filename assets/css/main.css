@@ -17,6 +17,10 @@ body {
   background-size: cover;
 }
 
+.settings div {
+  margin: 1rem;
+}
+
 .center-container {
   left: 50%;
   top: 40%;
