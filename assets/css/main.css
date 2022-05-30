@@ -74,8 +74,9 @@ input:focus {
 .name div {
   text-align: center;
 }
-.name div h1 {
+.name div span {
   font-size: 8vmin;
+  font-weight: bold;
 }
 
 .quote {
