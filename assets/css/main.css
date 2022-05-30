@@ -40,6 +40,9 @@ input:focus {
 .settings a {
   font-size: 24px;
 }
+.settings a:hover {
+  color: #d3d3d3;
+}
 
 .center-container {
   left: 50%;
@@ -99,6 +102,12 @@ input:focus {
   bottom: 0;
   position: absolute;
   transform: translate(-50%, -50%);
+}
+.todo a {
+  font-size: 24px;
+}
+.todo a:hover {
+  color: #d3d3d3;
 }
 
 .focus-input, .focus {
