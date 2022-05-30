@@ -10,6 +10,7 @@ function showTime() {
   let currentHours = currentDate.getHours()
   let currentMinutes = currentDate.getMinutes()
   let currentMilitaryTime = `${currentHours}${currentMinutes}`
+
   currentTime = currentTime.replace('AM', '').replace('PM', '')
   clockElement.textContent = currentTime
 
