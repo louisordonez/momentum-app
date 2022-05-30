@@ -66,7 +66,7 @@ input:focus {
   font-size: 20vmin;
 }
 
-.name {
+.greeting {
   margin-top: 4rem;
   left: 50%;
   top: 60%;
@@ -74,10 +74,10 @@ input:focus {
   transform: translate(-50%, -50%);
   width: 100%;
 }
-.name div {
+.greeting div {
   text-align: center;
 }
-.name div span {
+.greeting div span {
   font-size: 8vmin;
   font-weight: bold;
 }
