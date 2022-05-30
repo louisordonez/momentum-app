@@ -122,21 +122,20 @@ input:focus {
   font-size: 4.2vmin;
 }
 
-.focus div {
+.focus-input div input[type=text], .focus-input div, .focus div {
   text-align: center;
+}
+
+.focus div {
   width: 100%;
 }
 .focus-input {
   margin-top: 2rem;
   top: 85%;
 }
-.focus-input div {
-  text-align: center;
-}
 .focus-input div input[type=text] {
   background: none;
   border: none;
   border-bottom: 2px solid white;
   color: white;
-  text-align: center;
 }/*# sourceMappingURL=main.css.map */

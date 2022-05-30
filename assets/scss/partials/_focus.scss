@@ -11,11 +11,15 @@
   font-size: 4.2vmin;
 }
 
+%text-align-center {
+  text-align: center;
+}
+
 .focus {
   @extend %focus-position;
 
   div {
-    text-align: center;
+    @extend %text-align-center;
     width: 100%;
 
     p {
@@ -30,7 +34,7 @@
   top: 85%;
 
   div {
-    text-align: center;
+    @extend %text-align-center;
 
     input[type='text'] {
       background: none;
@@ -38,7 +42,7 @@
       border-bottom: 2px solid white;
       color: white;
       @extend %focus-text-size;
-      text-align: center;
+      @extend %text-align-center;
     }
   }
 }
