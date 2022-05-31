@@ -17,6 +17,7 @@ const showTime = () => {
   clockElement.textContent = currentTime
 
   setGreeting(currentMilitaryTime)
+  setBackground(currentMilitaryTime)
 }
 
 const setGreeting = (time) => {
@@ -34,8 +35,6 @@ const setGreeting = (time) => {
   }
 
   greetingElement.textContent = checkTimeGreeting(time)
-
-  setBackground(time)
 }
 
 const setBackground = (time) => {
@@ -76,8 +75,6 @@ const focusInputText = document.querySelector('div.focus-input span')
 const focusRemoveButton = document.querySelector('div.focus-input button')
 const focusLocalStorageKey = 'focusInputText'
 
-getLocalStorageItem(focusLocalStorageKey)
-
 focusInput.addEventListener('keypress', (e) => {
   let focusInputValue = focusInput.value
 
@@ -110,6 +107,8 @@ const focusElementsToggle = () => {
   focusRemoveButton.classList.toggle('hide')
 }
 
+getLocalStorageItem(focusLocalStorageKey)
+
 // Show Menus
 const settingsMenu = document.querySelector('[data-settings-menu]')
 const settingsButton = document.querySelector('div.settings button')
@@ -123,7 +122,6 @@ settingsButton.addEventListener('click', () =>
 todoButton.addEventListener('click', () => showMenu(todoMenu, todoButton))
 
 const showMenu = (menu, button) => {
-  addAnimation(menu)
   menu.classList.toggle('show')
   button.classList.toggle('active-btn')
 
@@ -133,6 +131,7 @@ const showMenu = (menu, button) => {
       : todoButton.toggleAttribute('disabled')
   }
 
+  addAnimation(menu)
   disableButton(button)
 }
 
