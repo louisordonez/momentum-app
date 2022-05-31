@@ -1,4 +1,4 @@
-// Time Clock
+// Clock
 const clockElement = document.querySelector('[data-clock]')
 const greetingElement = document.querySelector('[data-greeting]')
 const backgroundImg = document.querySelector('body')
@@ -10,14 +10,13 @@ const showTime = () => {
     minute: '2-digit',
   })
   let currentHours = date.getHours()
-  let currentMinutes = date.getMinutes()
+  let currentMinutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
   let currentMilitaryTime = `${currentHours}${currentMinutes}`
 
   currentTime = currentTime.replace('AM', '').replace('PM', '')
   clockElement.textContent = currentTime
 
-  setGreeting(currentMilitaryTime)
-  setBackground(currentMilitaryTime)
+  return currentMilitaryTime
 }
 
 const setGreeting = (time) => {
@@ -65,7 +64,11 @@ const setBackground = (time) => {
   backgroundImg.style.backgroundImage = checkTimeBackground(time)
 }
 
-setInterval(showTime, 1000)
+const getTime = setInterval(() => {
+  showTime()
+  setGreeting(showTime())
+  setBackground(showTime())
+}, 1000)
 
 // Focus
 const focusQuestion = document.querySelector('div.focus span')
