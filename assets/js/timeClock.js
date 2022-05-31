@@ -31,7 +31,6 @@ function setGreeting(time) {
 }
 
 function setBackground(time) {
-  time = '1454'
   addFadeClass()
   if (time >= '0000' && time <= '0459') {
     backgroundImg.style.backgroundImage = `url('./assets/img/bg-1900-0459.png')`
