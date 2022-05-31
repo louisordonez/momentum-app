@@ -71,25 +71,24 @@ function setBackground(time) {
 setInterval(showTime, 1000)
 
 // Show Menus
-const settingsButton = document.querySelector('div.settings button')
 const settingsMenu = document.querySelector('[data-settings-menu]')
-const todoButton = document.querySelector('div.todo button')
+const settingsButton = document.querySelector('div.settings button')
 const todoMenu = document.querySelector('[data-todo-menu]')
+const todoButton = document.querySelector('div.todo button')
 
-settingsButton.addEventListener('click', showSettingsMenu)
-todoButton.addEventListener('click', showTodoMenu)
+settingsButton.addEventListener('click', () =>
+  showMenu(settingsMenu, settingsButton)
+)
 
-function showSettingsMenu() {
-  addAnimation(settingsMenu)
-  settingsMenu.classList.toggle('show')
-  settingsButton.classList.toggle('active-btn')
+todoButton.addEventListener('click', () => showMenu(todoMenu, todoButton))
+
+function showMenu(menu, button) {
+  addAnimation(menu)
+  menu.classList.toggle('show')
+  button.classList.toggle('active-btn')
 }
 
-function showTodoMenu() {
-  addAnimation(todoMenu)
-  todoMenu.classList.toggle('show')
-  todoButton.classList.toggle('active-btn')
-}
+function disableButtons() {}
 
 // Add Background Transition
 function addBackgroundTransition(element) {
