@@ -150,17 +150,21 @@ input:focus {
   transform: translate(-50%, -50%);
 }
 
-.focus-input div input[type=text], .focus div p {
+.focus-input span, .focus-input div input[type=text], .focus div span {
   font-size: 4.2vmin;
 }
 
-.focus-input div input[type=text], .focus-input div, .focus div {
+.focus-input span, .focus-input div input[type=text], .focus-input div, .focus div {
   text-align: center;
 }
 
 .focus div {
   width: 100%;
 }
+.focus-today-header {
+  font-weight: bold;
+}
+
 .focus-input {
   margin-top: 2rem;
   top: 85%;
@@ -171,7 +175,6 @@ input:focus {
   border-bottom: 2px solid white;
   color: white;
 }
-
 .fade-bg {
   transition: 1s background-image ease;
 }
@@ -200,6 +203,10 @@ input:focus {
 }
 .show {
   display: block;
+}
+
+.hide {
+  display: none;
 }
 
 .active-btn {

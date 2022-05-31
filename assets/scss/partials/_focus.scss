@@ -22,10 +22,14 @@
     @extend %text-align-center;
     width: 100%;
 
-    p {
+    span {
       @extend %focus-text-size;
     }
   }
+}
+
+.focus-today-header {
+  font-weight: bold;
 }
 
 .focus-input {
@@ -44,5 +48,10 @@
       @extend %focus-text-size;
       @extend %text-align-center;
     }
+  }
+
+  span {
+    @extend %focus-text-size;
+    @extend %text-align-center;
   }
 }
