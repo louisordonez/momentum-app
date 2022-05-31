@@ -19,11 +19,11 @@ const showTime = () => {
   setGreeting(currentMilitaryTime)
 }
 
-const setGreeting = (time) => {
-  const goodMorningGreeting = `Good morning, `
-  const goodAfternoonGreeting = `Good afternoon, `
-  const goodEveningGreeting = `Good evening, `
+const goodMorningGreeting = 'Good morning,'
+const goodAfternoonGreeting = 'Good afternoon, '
+const goodEveningGreeting = 'Good evening, '
 
+const setGreeting = (time) => {
   if (time < '1200') {
     // Until 11:59 AM
     greetingElement.textContent = goodMorningGreeting
@@ -38,13 +38,13 @@ const setGreeting = (time) => {
   setBackground(time)
 }
 
-const setBackground = (time) => {
-  const bgEarlyMorning = `url('./assets/img/bg-early-morning.png')`
-  const bgLateMorning = `url('./assets/img/bg-late-morning.png')`
-  const bgEarlyAfternoon = `url('./assets/img/bg-early-afternoon.png')`
-  const bgLateAfternoon = `url('./assets/img/bg-late-afternoon.png')`
-  const bgEvening = `url('./assets/img/bg-evening.png')`
+const bgEarlyMorning = `url('./assets/img/bg-early-morning.png')`
+const bgLateMorning = `url('./assets/img/bg-late-morning.png')`
+const bgEarlyAfternoon = `url('./assets/img/bg-early-afternoon.png')`
+const bgLateAfternoon = `url('./assets/img/bg-late-afternoon.png')`
+const bgEvening = `url('./assets/img/bg-evening.png')`
 
+const setBackground = (time) => {
   addBackgroundTransition(backgroundImg)
 
   if (time < '0530') {
