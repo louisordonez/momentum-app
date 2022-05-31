@@ -1,1 +1,5 @@
 @use 'partials' as *;
+
+.fade {
+  transition: background-image 1s ease-in-out;
+}

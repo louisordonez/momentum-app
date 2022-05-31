@@ -10,8 +10,8 @@
 body {
   font-family: "Lato", sans-serif;
   color: white;
+  background-image: url("../img/bg-0500-0659.png");
   background-color: rgba(0, 0, 0, 0.8);
-  background-image: url("../img/bg-1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -138,4 +138,8 @@ input:focus {
   border: none;
   border-bottom: 2px solid white;
   color: white;
+}
+
+.fade {
+  transition: background-image 1s ease-in-out;
 }/*# sourceMappingURL=main.css.map */
