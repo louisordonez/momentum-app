@@ -3,7 +3,7 @@ const clockElement = document.querySelector('[data-clock]')
 const greetingElement = document.querySelector('[data-greeting]')
 const backgroundImg = document.querySelector('body')
 
-function showTime() {
+const showTime = () => {
   let date = new Date()
   let currentTime = date.toLocaleTimeString([], {
     hour: '2-digit',
@@ -19,7 +19,7 @@ function showTime() {
   setGreeting(currentMilitaryTime)
 }
 
-function setGreeting(time) {
+const setGreeting = (time) => {
   const goodMorningGreeting = `Good morning, `
   const goodAfternoonGreeting = `Good afternoon, `
   const goodEveningGreeting = `Good evening, `
@@ -38,7 +38,7 @@ function setGreeting(time) {
   setBackground(time)
 }
 
-function setBackground(time) {
+const setBackground = (time) => {
   const bgEarlyMorning = `url('./assets/img/bg-early-morning.png')`
   const bgLateMorning = `url('./assets/img/bg-late-morning.png')`
   const bgEarlyAfternoon = `url('./assets/img/bg-early-afternoon.png')`
@@ -102,7 +102,7 @@ function getLocalStorageItem(key) {
   }
 }
 
-function focusElementsToggle() {
+const focusElementsToggle = () => {
   focusQuestion.classList.toggle('hide')
   focusInput.classList.toggle('hide')
   focusTodayHeader.classList.toggle('hide')
@@ -122,7 +122,7 @@ settingsButton.addEventListener('click', () =>
 
 todoButton.addEventListener('click', () => showMenu(todoMenu, todoButton))
 
-function showMenu(menu, button) {
+const showMenu = (menu, button) => {
   addAnimation(menu)
   menu.classList.toggle('show')
   button.classList.toggle('active-btn')
@@ -130,19 +130,17 @@ function showMenu(menu, button) {
   disableButton(button)
 }
 
-function disableButton(button) {
-  if (button === todoButton) {
-    settingsButton.toggleAttribute('disabled')
-  } else {
-    todoButton.toggleAttribute('disabled')
-  }
+const disableButton = (button) => {
+  button === todoButton
+    ? settingsButton.toggleAttribute('disabled')
+    : todoButton.toggleAttribute('disabled')
 }
 
 // Transitions and Animations
-function addBackgroundTransition(element) {
+const addBackgroundTransition = (element) => {
   element.classList.add('fade-bg')
 }
 
-function addAnimation(element) {
+const addAnimation = (element) => {
   element.classList.add('fade-animation')
 }
