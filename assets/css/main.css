@@ -36,13 +36,20 @@ input:focus {
   position: absolute;
   margin: 1rem;
 }
-.settings a:hover {
+.settings button {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.settings button:hover {
   color: #d3d3d3;
+  cursor: pointer;
 }
 
 .settings-menu {
   display: none;
-  width: 30vmax;
+  width: 100vmin;
+  max-width: 30vmax;
   height: 80vh;
   background-color: white;
   overflow: scroll;
@@ -110,14 +117,21 @@ input:focus {
   position: absolute;
   transform: translate(-50%, -50%);
 }
-.todo a:hover {
+.todo button {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.todo button:hover {
   color: #d3d3d3;
+  cursor: pointer;
 }
 
 .todo-menu {
   display: none;
   position: absolute;
-  width: 40vmax;
+  width: 100vmin;
+  max-width: 40vmax;
   height: 80vh;
   top: -80vh;
   right: 0;

@@ -6,16 +6,14 @@
   bottom: 0;
   position: absolute;
   transform: translate(-50%, -50%);
-
-  a:hover {
-    color: $light-gray;
-  }
+  @include button-style;
 }
 
 .todo-menu {
   display: none;
   position: absolute;
-  width: 40vmax;
+  width: 100vmin;
+  max-width: 40vmax;
   height: 80vh;
   top: -80vh;
   right: 0;

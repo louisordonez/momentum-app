@@ -4,15 +4,13 @@
 .settings {
   position: absolute;
   margin: 1rem;
-
-  a:hover {
-    color: $light-gray;
-  }
+  @include button-style;
 }
 
 .settings-menu {
   display: none;
-  width: 30vmax;
+  width: 100vmin;
+  max-width: 30vmax;
   height: 80vh;
   background-color: white;
   overflow: scroll;
