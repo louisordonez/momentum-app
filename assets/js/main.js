@@ -4,13 +4,13 @@ const greetingElement = document.querySelector('[data-greeting]')
 const backgroundImg = document.querySelector('body')
 
 function showTime() {
-  let currentDate = new Date()
-  let currentTime = currentDate.toLocaleTimeString([], {
+  let date = new Date()
+  let currentTime = date.toLocaleTimeString([], {
     hour: '2-digit',
     minute: '2-digit',
   })
-  let currentHours = currentDate.getHours()
-  let currentMinutes = currentDate.getMinutes()
+  let currentHours = date.getHours()
+  let currentMinutes = date.getMinutes()
   let currentMilitaryTime = `${currentHours}${currentMinutes}`
 
   currentTime = currentTime.replace('AM', '').replace('PM', '')
@@ -70,6 +70,39 @@ function setBackground(time) {
 
 setInterval(showTime, 1000)
 
+// Focus
+const focusQuestion = document.querySelector('div.focus span')
+const focusTodayHeader = document.querySelector('[data-focus-today-header]')
+const focusInput = document.querySelector('div.focus-input input[type=text')
+const focusInputText = document.querySelector('div.focus-input span')
+const focusLocalStorageKey = 'focusInputText'
+
+getLocalStorageItem(focusLocalStorageKey)
+
+focusInput.addEventListener('keypress', (e) => getFocusValue(e))
+
+function getFocusValue(e) {
+  if (e.key === 'Enter') {
+    let focusInputValue = focusInput.value
+    localStorage.setItem(focusLocalStorageKey, focusInputValue)
+    getLocalStorageItem(focusLocalStorageKey)
+  }
+}
+
+function getLocalStorageItem(key) {
+  let focusInputText = localStorage.getItem(key)
+  focusElementsToggle(focusInputText)
+}
+
+function focusElementsToggle(key) {
+  if (key !== null) {
+    focusQuestion.classList.toggle('hide')
+    focusInput.classList.toggle('hide')
+    focusTodayHeader.classList.toggle('hide')
+    focusInputText.classList.toggle('hide')
+  }
+}
+
 // Show Menus
 const settingsMenu = document.querySelector('[data-settings-menu]')
 const settingsButton = document.querySelector('div.settings button')
@@ -98,12 +131,11 @@ function disableButton(button) {
   }
 }
 
-// Add Background Transition
+// Transitions and Animations
 function addBackgroundTransition(element) {
   element.classList.add('fade-bg')
 }
 
-// Add Animation
 function addAnimation(element) {
   element.classList.add('fade-animation')
 }
