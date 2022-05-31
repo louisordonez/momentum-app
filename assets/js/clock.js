@@ -4,9 +4,9 @@ const clockElement = document.querySelector('[data-clock]')
 const greetingElement = document.querySelector('[data-greeting]')
 const backgroundImg = document.querySelector('body')
 
-const showTime = () => {
+const getTime = () => {
   let date = new Date()
-  let currentTime = date.toLocaleTimeString([], {
+  let currentRegularTime = date.toLocaleTimeString([], {
     hour: '2-digit',
     minute: '2-digit',
   })
@@ -14,17 +14,19 @@ const showTime = () => {
   let currentMinutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
   let currentMilitaryTime = `${currentHours}${currentMinutes}`
 
-  currentTime = currentTime.replace('AM', '').replace('PM', '')
-  clockElement.textContent = currentTime
+  return { currentRegularTime, currentMilitaryTime }
+}
 
-  return currentMilitaryTime
+const setClock = (time) => {
+  time = time.replace('AM', '').replace('PM', '')
+  clockElement.textContent = time
 }
 
 const setGreeting = (time) => {
-  const checkTimeGreeting = (time) => {
+  const checkGreetingTime = (time) => {
     if (time < '1200') {
       // Until 11:59 AM
-      return 'Good morning,'
+      return 'Good morning, '
     } else if (time > '1159' && time < '1800') {
       // 12:00 PM - 05:59 PM
       return 'Good afternoon, '
@@ -34,11 +36,11 @@ const setGreeting = (time) => {
     }
   }
 
-  greetingElement.textContent = checkTimeGreeting(time)
+  greetingElement.textContent = checkGreetingTime(time)
 }
 
 const setBackground = (time) => {
-  const checkTimeBackground = (time) => {
+  const checkBackgroundTime = (time) => {
     if (time < '0530') {
       // Until 05:29 AM
       return `url('./assets/img/bg-evening.png')`
@@ -62,11 +64,14 @@ const setBackground = (time) => {
 
   addBackgroundTransition(backgroundImg)
 
-  backgroundImg.style.backgroundImage = checkTimeBackground(time)
+  backgroundImg.style.backgroundImage = checkBackgroundTime(time)
 }
 
-const getTime = setInterval(() => {
-  showTime()
-  setGreeting(showTime())
-  setBackground(showTime())
+setInterval(() => {
+  let times = getTime()
+
+  getTime()
+  setClock(times.currentRegularTime)
+  setGreeting(times.currentMilitaryTime)
+  setBackground(times.currentMilitaryTime)
 }, 1000)
