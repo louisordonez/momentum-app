@@ -203,5 +203,5 @@ input:focus {
 }
 
 .active-btn {
-  color: #d3d3d3;
+  color: #d3d3d3 !important;
 }/*# sourceMappingURL=main.css.map */
