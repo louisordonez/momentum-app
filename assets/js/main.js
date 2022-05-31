@@ -87,10 +87,10 @@ function showMenu(menu, button) {
   menu.classList.toggle('show')
   button.classList.toggle('active-btn')
 
-  disableButtons(button)
+  disableButton(button)
 }
 
-function disableButtons(button) {
+function disableButton(button) {
   if (button === todoButton) {
     settingsButton.toggleAttribute('disabled')
   } else {
