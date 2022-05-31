@@ -107,7 +107,7 @@ input:focus {
   text-align: center;
 }
 .quote div p {
-  font-size: 1.6rem;
+  font-size: 3vmin;
   font-style: italic;
 }
 
