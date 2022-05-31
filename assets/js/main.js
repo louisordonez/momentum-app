@@ -86,9 +86,17 @@ function showMenu(menu, button) {
   addAnimation(menu)
   menu.classList.toggle('show')
   button.classList.toggle('active-btn')
+
+  disableButtons(button)
 }
 
-function disableButtons() {}
+function disableButtons(button) {
+  if (button === todoButton) {
+    settingsButton.toggleAttribute('disabled')
+  } else {
+    todoButton.toggleAttribute('disabled')
+  }
+}
 
 // Add Background Transition
 function addBackgroundTransition(element) {
