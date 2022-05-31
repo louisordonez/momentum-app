@@ -112,9 +112,9 @@ input:focus {
 }
 
 .todo {
+  position: absolute;
   right: 0;
   bottom: 0;
-  position: absolute;
   transform: translate(-50%, -50%);
 }
 .todo button {
@@ -130,14 +130,14 @@ input:focus {
 .todo-menu {
   display: none;
   position: absolute;
+  top: -80vh;
+  right: 0;
   width: 100vmin;
   max-width: 40vmax;
   height: 80vh;
-  top: -80vh;
-  right: 0;
-  background-color: white;
-  overflow: scroll;
   margin-top: -1rem;
+  overflow: scroll;
+  background-color: white;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -150,7 +150,7 @@ input:focus {
   transform: translate(-50%, -50%);
 }
 
-.focus-input span, .focus-input div input[type=text], .focus div span {
+.focus-input button, .focus-input span, .focus-input div input[type=text], .focus div span {
   font-size: 4.2vmin;
 }
 
@@ -175,6 +175,23 @@ input:focus {
   border-bottom: 2px solid white;
   color: white;
 }
+.focus-input button {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.focus-input button:hover {
+  color: #d3d3d3;
+  cursor: pointer;
+}
+.focus-input button {
+  margin-left: 1rem;
+}
+.focus-input button span {
+  position: absolute;
+  bottom: 0;
+}
+
 .fade-bg {
   transition: 1s background-image ease;
 }

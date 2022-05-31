@@ -54,4 +54,15 @@
     @extend %focus-text-size;
     @extend %text-align-center;
   }
+
+  @include button-style;
+
+  button {
+    @extend %focus-text-size;
+    margin-left: 1rem;
+    span {
+      position: absolute;
+      bottom: 0;
+    }
+  }
 }

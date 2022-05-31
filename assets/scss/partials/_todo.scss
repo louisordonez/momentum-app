@@ -2,9 +2,9 @@
 @use './mixins' as *;
 
 .todo {
+  position: absolute;
   right: 0;
   bottom: 0;
-  position: absolute;
   transform: translate(-50%, -50%);
   @include button-style;
 }
@@ -12,13 +12,13 @@
 .todo-menu {
   display: none;
   position: absolute;
+  top: -80vh;
+  right: 0;
   width: 100vmin;
   max-width: 40vmax;
   height: 80vh;
-  top: -80vh;
-  right: 0;
-  background-color: white;
-  overflow: scroll;
   margin-top: -1rem;
+  overflow: scroll;
+  background-color: white;
   @include menu-style;
 }
