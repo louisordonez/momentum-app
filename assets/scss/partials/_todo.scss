@@ -6,11 +6,20 @@
   position: absolute;
   transform: translate(-50%, -50%);
 
-  a {
-    font-size: 24px;
-
-    &:hover {
-      color: $light-gray;
-    }
+  a:hover {
+    color: $light-gray;
   }
+}
+
+.todo-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 45rem;
+  height: 80vh;
+  top: -80vh;
+  right: 0;
+  background-color: white;
+  overflow: scroll;
+  margin-top: -1rem;
 }
