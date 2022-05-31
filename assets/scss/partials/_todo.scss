@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 .todo {
   right: 0;
@@ -22,4 +23,5 @@
   background-color: white;
   overflow: scroll;
   margin-top: -1rem;
+  @include menu-style;
 }

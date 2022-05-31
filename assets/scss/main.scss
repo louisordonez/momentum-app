@@ -5,10 +5,10 @@
 }
 
 .fade-animation {
-  animation: hideMe 0.3s forwards;
+  animation: showAnimation 0.3s forwards;
 }
 
-@keyframes hideMe {
+@keyframes showAnimation {
   0% {
     opacity: 0;
   }

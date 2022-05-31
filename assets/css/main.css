@@ -49,6 +49,8 @@ input:focus {
   background-color: white;
   overflow: scroll;
   margin-top: 1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .center-container {
@@ -125,6 +127,8 @@ input:focus {
   background-color: white;
   overflow: scroll;
   margin-top: -1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .focus-input, .focus {
@@ -162,11 +166,11 @@ input:focus {
 }
 
 .fade-animation {
-  -webkit-animation: hideMe 0.3s forwards;
-          animation: hideMe 0.3s forwards;
+  -webkit-animation: showAnimation 0.3s forwards;
+          animation: showAnimation 0.3s forwards;
 }
 
-@-webkit-keyframes hideMe {
+@-webkit-keyframes showAnimation {
   0% {
     opacity: 0;
   }
@@ -175,7 +179,7 @@ input:focus {
   }
 }
 
-@keyframes hideMe {
+@keyframes showAnimation {
   0% {
     opacity: 0;
   }

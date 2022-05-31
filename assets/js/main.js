@@ -61,7 +61,7 @@ function setBackground(time) {
 
 setInterval(showTime, 1000)
 
-// Show menu
+// Show Menus
 const settingsButton = document.querySelector('div.settings a')
 const settingsMenu = document.querySelector('[data-settings-menu]')
 const todoButton = document.querySelector('div.todo a')

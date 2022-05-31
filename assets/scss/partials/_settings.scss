@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 .settings {
   position: relative;
@@ -18,4 +19,5 @@
   background-color: white;
   overflow: scroll;
   margin-top: 1rem;
+  @include menu-style;
 }
