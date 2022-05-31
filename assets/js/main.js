@@ -24,11 +24,14 @@ function setGreeting(time) {
   const goodAfternoonGreeting = `Good afternoon, `
   const goodEveningGreeting = `Good evening, `
 
-  if (time >= '0000' && time <= '1159') {
+  if (time < '1200') {
+    // Until 11:59 AM
     greetingElement.textContent = goodMorningGreeting
-  } else if (time >= '1200' && time <= '1759') {
+  } else if (time > '1159' && time < '1800') {
+    // 12:00 PM - 05:59 PM
     greetingElement.textContent = goodAfternoonGreeting
-  } else if (time >= '1800' && time <= '2359') {
+  } else if (time > '1759' && time < '2400') {
+    // 06:00 PM - 11:59 PM
     greetingElement.textContent = goodEveningGreeting
   }
 
@@ -36,25 +39,31 @@ function setGreeting(time) {
 }
 
 function setBackground(time) {
-  const bgEvening = `url('./assets/img/bg-evening.png')`
   const bgEarlyMorning = `url('./assets/img/bg-early-morning.png')`
   const bgLateMorning = `url('./assets/img/bg-late-morning.png')`
   const bgEarlyAfternoon = `url('./assets/img/bg-early-afternoon.png')`
   const bgLateAfternoon = `url('./assets/img/bg-late-afternoon.png')`
+  const bgEvening = `url('./assets/img/bg-evening.png')`
 
   addBackgroundTransition(backgroundImg)
 
-  if (time >= '0000' && time <= '0459') {
+  if (time < '0530') {
+    // Until 05:29 AM
     backgroundImg.style.backgroundImage = bgEvening
-  } else if (time >= '0500' && time <= '0659') {
+  } else if (time > '0529' && time < '0630') {
+    // 05:30 AM - 06:29 AM
     backgroundImg.style.backgroundImage = bgEarlyMorning
-  } else if (time >= '0700' && time <= '1059') {
+  } else if (time > '0629' && time < '1000') {
+    // 6:30 AM - 09:59 AM
     backgroundImg.style.backgroundImage = bgLateMorning
-  } else if (time >= '1100' && time <= '1659') {
+  } else if (time > '0959' && time < '1700') {
+    // 10:00 AM - 04:59 PM
     backgroundImg.style.backgroundImage = bgEarlyAfternoon
-  } else if (time >= '1700' && time <= '1859') {
+  } else if (time > '1659' && time < '1830') {
+    // 05:00 PM - 06:29 PM
     backgroundImg.style.backgroundImage = bgLateAfternoon
-  } else if (time >= '1900' && time <= '2359') {
+  } else if (time > '1829' && time < '2400') {
+    // 06:30 PM - 11:59 PM
     backgroundImg.style.backgroundImage = bgEvening
   }
 }

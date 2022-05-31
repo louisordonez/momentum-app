@@ -42,7 +42,7 @@ input:focus {
 
 .settings-menu {
   display: none;
-  width: 30rem;
+  width: 30vmax;
   height: 80vh;
   background-color: white;
   overflow: scroll;
@@ -117,7 +117,7 @@ input:focus {
 .todo-menu {
   display: none;
   position: absolute;
-  width: 45rem;
+  width: 40vmax;
   height: 80vh;
   top: -80vh;
   right: 0;
