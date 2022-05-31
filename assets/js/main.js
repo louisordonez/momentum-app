@@ -59,11 +59,11 @@ function setBackground(time) {
   } else if (time > '0959' && time < '1700') {
     // 10:00 AM - 04:59 PM
     backgroundImg.style.backgroundImage = bgEarlyAfternoon
-  } else if (time > '1659' && time < '1830') {
-    // 05:00 PM - 06:29 PM
+  } else if (time > '1659' && time < '1800') {
+    // 05:00 PM - 05:59 PM
     backgroundImg.style.backgroundImage = bgLateAfternoon
-  } else if (time > '1829' && time < '2400') {
-    // 06:30 PM - 11:59 PM
+  } else if (time > '1759' && time < '2400') {
+    // 06:00 PM - 11:59 PM
     backgroundImg.style.backgroundImage = bgEvening
   }
 }
