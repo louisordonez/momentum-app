@@ -20,8 +20,8 @@ focusRemoveButton.addEventListener('click', () => {
   focusInput.value = ''
 })
 
-const getLocalStorageItem = (key) => {
-  let focusInputTextItem = localStorage.getItem(key)
+const getLocalStorageItem = (itemKey) => {
+  let focusInputTextItem = localStorage.getItem(itemKey)
 
   if (focusInputTextItem !== null) {
     focusElementsToggle()
