@@ -128,7 +128,8 @@ input:focus {
 .quote-list li span {
   font-weight: 400;
 }
-.quote-list li span:hover {
+
+.quote-remove :hover {
   color: #d52e3f;
 }
 

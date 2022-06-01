@@ -93,11 +93,13 @@
     span {
       @extend %settings-menu-text-style;
       font-weight: 400;
-
-      &:hover {
-        color: $red;
-      }
     }
+  }
+}
+
+.quote-remove {
+  :hover {
+    color: $red;
   }
 }
 
