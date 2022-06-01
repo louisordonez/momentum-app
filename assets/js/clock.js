@@ -2,7 +2,7 @@ import { addBackgroundTransition } from './fade.js'
 
 const clockElement = document.querySelector('[data-clock]')
 const greetingElement = document.querySelector('[data-greeting]')
-const backgroundImg = document.querySelector('body')
+const body = document.querySelector('body')
 
 const getTime = () => {
   let date = new Date()
@@ -62,9 +62,9 @@ const setBackground = (time) => {
     }
   }
 
-  addBackgroundTransition(backgroundImg)
+  addBackgroundTransition(body)
 
-  backgroundImg.style.backgroundImage = checkBackgroundTime(time)
+  body.style.backgroundImage = checkBackgroundTime(time)
 }
 
 const setTimeInterval = setInterval(() => {
