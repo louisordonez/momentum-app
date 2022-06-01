@@ -6,10 +6,7 @@ const body = document.querySelector('body')
 
 const getTime = () => {
   let date = new Date()
-  let currentRegularTime = date.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
+  let currentRegularTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   let currentHours = date.getHours()
   let currentMinutes = `${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`
   let currentMilitaryTime = `${currentHours}${currentMinutes}`
