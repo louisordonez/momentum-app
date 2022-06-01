@@ -67,7 +67,7 @@ const setBackground = (time) => {
   backgroundImg.style.backgroundImage = checkBackgroundTime(time)
 }
 
-setInterval(() => {
+const setTimeInterval = setInterval(() => {
   let times = getTime()
 
   getTime()
