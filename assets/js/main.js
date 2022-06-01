@@ -1,5 +1,4 @@
-import { addBackgroundTransition } from './fade.js'
-import { addAnimation } from './fade.js'
+import { addBackgroundTransition, addAnimation } from './fade.js'
 
 // Clock
 const clockElement = document.querySelector('[data-clock]')
