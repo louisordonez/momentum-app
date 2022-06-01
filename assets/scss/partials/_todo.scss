@@ -6,6 +6,11 @@
   bottom: 0;
   @include center-screen;
   @include button-style;
+
+  i {
+    padding: 1rem;
+    font-size: 2rem;
+  }
 }
 
 .todo-menu {

@@ -160,3 +160,37 @@ const getName = (item) => {
 }
 
 getName(nameLocalStorageKey)
+
+const quoteUl = document.querySelector('[data-quote-ul]')
+const quoteLi = document.querySelector('[data-quote-li]')
+const quoteInput = document.querySelector('[data-settings-menu-quote-input]')
+const quoteAddButton = document.querySelector('[data-settings-menu-quote-add-button]')
+
+quoteAddButton.addEventListener('click', () => newQuote())
+
+// const quoteRemoveButton = document.querySelector('[data-settings-menu-quote-remove-button]')
+// quoteRemoveButton.addEventListener('click', () => removeQuote(quoteLi))
+
+const newQuote = () => {
+  const liQuote = document.createElement('li')
+  const divQuote = document.createElement('div')
+  const spanQuote = document.createElement('span')
+  const buttonQuote = document.createElement('button')
+  const iQuote = document.createElement('i')
+  let spanValue = document.createTextNode('Tesasdasdasdasdasdasdasdasdasdt')
+
+  buttonQuote.classList.add('quote-remove')
+  iQuote.classList.add('fa-solid', 'fa-circle-minus', 'i-menu-style')
+
+  quoteUl.appendChild(liQuote)
+  liQuote.appendChild(divQuote)
+  divQuote.appendChild(spanQuote)
+  spanQuote.append(buttonQuote)
+  buttonQuote.append(iQuote)
+
+  spanQuote.appendChild(spanValue)
+}
+
+const removeQuote = (element) => {
+  element.remove()
+}

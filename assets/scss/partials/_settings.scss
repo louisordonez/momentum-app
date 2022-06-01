@@ -6,10 +6,30 @@
   font-size: 2rem;
 }
 
+%settings-button-style {
+  background-color: $green !important;
+  border: none;
+  color: white !important;
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: $green-hover !important;
+    color: white !important;
+  }
+}
+
 .settings {
   position: absolute;
   margin: 1rem;
   @include button-style;
+
+  i {
+    padding: 1rem;
+    font-size: 2rem;
+  }
 }
 
 .settings-menu {
@@ -21,6 +41,7 @@
   overflow-y: scroll;
   margin-top: 1rem;
   @include menu-style;
+  margin-left: 1rem;
   margin-bottom: 5rem;
 }
 
@@ -63,6 +84,15 @@
 .quote-fieldset {
   border: none;
 
+  div.quote-add-container {
+    input[type='text'] {
+      @include input-text(none, none, 2px solid black, black);
+      padding: 1rem;
+      font-size: 2rem;
+      width: 100%;
+    }
+  }
+
   div.quote-header {
     @extend %settings-menu-text-style;
     font-size: 3.5rem;
@@ -71,7 +101,7 @@
   }
 }
 
-.quote-list {
+.quote-ul {
   li {
     @extend %settings-menu-text-style;
 
@@ -79,45 +109,38 @@
       display: flex;
       width: 100%;
       text-align: center;
-      padding: 2rem;
-    }
-
-    input[type='text'] {
-      @include input-text(none, none, 2px solid black, black);
-      margin-top: 1rem;
-      padding: 1rem;
-      font-size: 2rem;
-      width: 100%;
+      margin: 2rem;
     }
 
     span {
       @extend %settings-menu-text-style;
-      font-weight: 400;
     }
+  }
+}
+
+.i-menu-style {
+  @extend %settings-menu-text-style;
+}
+
+.quote-add {
+  :hover {
+    color: $green-hover !important;
   }
 }
 
 .quote-remove {
   :hover {
-    color: $red;
+    color: $red !important;
   }
 }
 
-.settings-submit-btn {
-  background-color: #04aa6d !important;
-  border: none;
-  color: white !important;
+.quote-add-container {
+  display: flex;
   width: 100%;
+  text-align: center;
   padding: 2rem;
-  font-size: 1.6rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+}
 
-  &:hover {
-    background-color: #059862 !important;
-    color: white !important;
-  }
+.settings-submit-btn {
+  @extend %settings-button-style;
 }

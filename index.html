@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <script src="assets/js/main.js" type="module" defer></script>
   </head>
@@ -44,7 +47,7 @@
           <div>
             <span class="hide" data-focus-input></span>
             <button class="focus-remove-btn hide">
-              <span class="material-symbols-rounded"> delete </span>
+              <i class="fa-solid fa-circle-xmark"></i>
             </button>
           </div>
         </div>
@@ -52,7 +55,7 @@
       <div class="settings">
         <div>
           <button>
-            <span class="material-symbols-rounded"> settings </span>
+            <i class="fa-solid fa-gear"></i>
           </button>
         </div>
         <div>
@@ -65,27 +68,22 @@
                 <div>
                   <input type="text" name="name" placeholder="Name" data-settings-menu-name-input />
                 </div>
+                <div>
+                  <button class="settings-submit-btn" data-settings-menu-submit>Save</button>
+                </div>
               </fieldset>
               <fieldset class="quote-fieldset">
+                <div class="quote-add-container">
+                  <input type="text" name="quote" placeholder="Quote" data-settings-menu-quote-input />
+                  <button class="quote-add" data-settings-menu-quote-add-button>
+                    <i class="fa-solid fa-circle-plus i-menu-style"></i>
+                  </button>
+                </div>
                 <div class="quote-header">
-                  <span>Qoutes</span>
+                  <span>Quotes </span>
                 </div>
-                <div class="quote-container">
-                  <ul class="quote-list">
-                    <li>
-                      <div>
-                        <input type="text" name="quote" placeholder="Quote" data-settings-menu-qoute-input />
-                        <button class="quote-remove">
-                          <span class="material-symbols-rounded"> delete </span>
-                        </button>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="quote-ul" data-quote-ul></ul>
               </fieldset>
-              <div>
-                <button class="settings-submit-btn" data-settings-menu-submit>Submit</button>
-              </div>
             </div>
           </div>
         </div>
@@ -93,7 +91,7 @@
       <div class="todo">
         <div>
           <button>
-            <span class="material-symbols-rounded"> checklist </span>
+            <i class="fa-solid fa-list-check"></i>
           </button>
         </div>
         <div>
@@ -101,7 +99,7 @@
         </div>
       </div>
       <div class="quote">
-        <div><p>“Random Qoute”</p></div>
+        <div><p>“Random Quote”</p></div>
       </div>
     </div>
   </body>
