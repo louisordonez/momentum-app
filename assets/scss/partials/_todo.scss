@@ -2,10 +2,9 @@
 @use './mixins' as *;
 
 .todo {
-  position: absolute;
   right: 0;
   bottom: 0;
-  transform: translate(-50%, -50%);
+  @include center-screen;
   @include button-style;
 }
 
