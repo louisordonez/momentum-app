@@ -41,10 +41,7 @@
     @extend %text-align-center;
 
     input[type='text'] {
-      background: none;
-      border: none;
-      border-bottom: 2px solid white;
-      color: white;
+      @include input-text(none, none, 2px solid white, white);
       @extend %focus-text-size;
       @extend %text-align-center;
     }

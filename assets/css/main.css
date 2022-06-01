@@ -23,7 +23,8 @@ a {
 
 input,
 textarea,
-select {
+select,
+button {
   font-family: "Lato", sans-serif;
 }
 
@@ -52,10 +53,59 @@ input:focus {
   max-width: 30vmax;
   height: 80vh;
   background-color: white;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-top: 1rem;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.settings-menu-header {
+  color: black;
+  text-align: center;
+  background-color: #99a8bb;
+  padding: 1rem;
+}
+.settings-menu-header span {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.settings-menu-form {
+  padding: 1rem;
+  width: 100%;
+}
+
+.user-fieldset {
+  border: none;
+}
+.user-fieldset input[type=text] {
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  color: black;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.settings-submit-btn {
+  background-color: #04aa6d !important;
+  border: none;
+  color: white !important;
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.6rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.settings-submit-btn:hover {
+  background-color: #059862 !important;
+  color: white !important;
 }
 
 .center-container {
@@ -76,8 +126,9 @@ input:focus {
 .clock div {
   text-align: center;
 }
-.clock div h1 {
+.clock div span {
   font-size: 20vmin;
+  font-weight: bold;
 }
 
 .greeting {

@@ -1,6 +1,11 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+%settings-menu-text-style {
+  color: black;
+  font-size: 2rem;
+}
+
 .settings {
   position: absolute;
   margin: 1rem;
@@ -13,7 +18,56 @@
   max-width: 30vmax;
   height: 80vh;
   background-color: white;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-top: 1rem;
   @include menu-style;
+}
+
+.settings-menu-header {
+  color: black;
+  text-align: center;
+  background-color: $dark-gray;
+  padding: 1rem;
+
+  span {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
+
+.settings-menu-form {
+  padding: 1rem;
+  width: 100%;
+}
+
+.user-fieldset {
+  border: none;
+
+  input[type='text'] {
+    @include input-text(none, none, 2px solid black, black);
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+
+.settings-submit-btn {
+  background-color: #04aa6d !important;
+  border: none;
+  color: white !important;
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.6rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  &:hover {
+    background-color: #059862 !important;
+    color: white !important;
+  }
 }

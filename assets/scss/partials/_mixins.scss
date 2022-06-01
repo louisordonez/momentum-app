@@ -22,3 +22,10 @@
     }
   }
 }
+
+@mixin input-text($background, $border, $border-bottom, $color) {
+  background: $background;
+  border: $border;
+  border-bottom: $border-bottom;
+  color: $color;
+}
