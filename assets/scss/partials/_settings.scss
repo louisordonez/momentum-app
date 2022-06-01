@@ -13,7 +13,7 @@
 }
 
 .settings-menu {
-  display: none;
+  // display: none;
   width: 100vmin;
   max-width: 30vmax;
   height: 80vh;
@@ -21,6 +21,7 @@
   overflow-y: scroll;
   margin-top: 1rem;
   @include menu-style;
+  margin-bottom: 5rem;
 }
 
 .settings-menu-header {
@@ -41,8 +42,14 @@
   width: 100%;
 }
 
-.user-fieldset {
+.name-fieldset {
   border: none;
+
+  div {
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+  }
 
   input[type='text'] {
     @include input-text(none, none, 2px solid black, black);
@@ -50,6 +57,47 @@
     padding: 1rem;
     font-size: 2rem;
     width: 100%;
+  }
+}
+
+.quote-fieldset {
+  border: none;
+
+  div.quote-header {
+    @extend %settings-menu-text-style;
+    font-size: 3.5rem;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.quote-list {
+  li {
+    @extend %settings-menu-text-style;
+
+    div {
+      display: flex;
+      width: 100%;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    input[type='text'] {
+      @include input-text(none, none, 2px solid black, black);
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 2rem;
+      width: 100%;
+    }
+
+    span {
+      @extend %settings-menu-text-style;
+      font-weight: 400;
+
+      &:hover {
+        color: $red;
+      }
+    }
   }
 }
 

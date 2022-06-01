@@ -33,6 +33,11 @@ input:focus {
   outline: none;
 }
 
+.quote-list li span, .quote-list li, .quote-fieldset div.quote-header {
+  color: black;
+  font-size: 2rem;
+}
+
 .settings {
   position: absolute;
   margin: 1rem;
@@ -48,7 +53,6 @@ input:focus {
 }
 
 .settings-menu {
-  display: none;
   width: 100vmin;
   max-width: 30vmax;
   height: 80vh;
@@ -57,6 +61,7 @@ input:focus {
   margin-top: 1rem;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin-bottom: 5rem;
 }
 
 .settings-menu-header {
@@ -76,10 +81,15 @@ input:focus {
   width: 100%;
 }
 
-.user-fieldset {
+.name-fieldset {
   border: none;
 }
-.user-fieldset input[type=text] {
+.name-fieldset div {
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+}
+.name-fieldset input[type=text] {
   background: none;
   border: none;
   border-bottom: 2px solid black;
@@ -88,6 +98,38 @@ input:focus {
   padding: 1rem;
   font-size: 2rem;
   width: 100%;
+}
+
+.quote-fieldset {
+  border: none;
+}
+.quote-fieldset div.quote-header {
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.quote-list li div {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+.quote-list li input[type=text] {
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  color: black;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  width: 100%;
+}
+.quote-list li span {
+  font-weight: 400;
+}
+.quote-list li span:hover {
+  color: #d52e3f;
 }
 
 .settings-submit-btn {
