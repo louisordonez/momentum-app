@@ -174,6 +174,7 @@ const quoteList = document.querySelector('[data-quote-ul]')
 const quoteItems = document.querySelectorAll('[data-quote-item]')
 const quoteInput = document.querySelector('[data-quote-input]')
 const removeButtons = document.getElementsByClassName('remove')
+const quoteText = document.querySelector('[data-quote]')
 
 const addListItem = (ul, button, input) => {
   button.addEventListener('click', () => newItem(ul, input, parseArray(ul)))
@@ -262,7 +263,7 @@ const parseArray = (ul) => {
 }
 
 const showListItems = (ul, array) => {
-  if (array !== null) {
+  if (array.length !== 0) {
     for (let i = 0; i < array.length; i++) {
       let inputValue = array[i]
       const inputTextNode = document.createTextNode(inputValue)
@@ -282,6 +283,16 @@ const showListItems = (ul, array) => {
   }
 }
 
+const randomQuote = (array) => {
+  if (array.length !== 0) {
+    let arrayIndex = Math.floor(Math.random() * array.length)
+    quoteText.classList.toggle('quote-fade-animation')
+    quoteText.textContent = array[arrayIndex]
+  } else {
+    quoteText.textContent = ''
+  }
+}
+
 addListItem(quoteList, quoteAddButton, quoteInput)
 addListItem(todoList, todoAddButton, todoInput)
 addRemoveButton(quoteItems)
@@ -289,3 +300,4 @@ addRemoveButton(todoItems)
 removeItems(removeButtons)
 showListItems(todoList, parseArray(todoList))
 showListItems(quoteList, parseArray(quoteList))
+randomQuote(parseArray(quoteList))
