@@ -252,13 +252,13 @@ ul {
   text-decoration: line-through;
 }
 
-.close {
+.delete {
   color: black !important;
   font-size: 2vmin;
   margin-right: 1vmin;
 }
 
-.close:hover {
+.delete:hover {
   color: #dc3545 !important;
 }
 

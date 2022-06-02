@@ -163,18 +163,25 @@ const getName = (item) => {
 getName(nameLocalStorageKey)
 
 // Settings - Todo
-// const liItems = document.querySelectorAll('[data-todo-item]')
 const todoAddButton = document.querySelector('[data-todo-add]')
+const liItems = document.querySelectorAll('[data-todo-item]')
+const deleteButtons = document.getElementsByClassName('delete')
 
 todoAddButton.addEventListener('click', () => newItem())
 
-// for (let i = 0; i < liItems.length; i++) {
-//   var span = document.createElement('SPAN')
-//   var txt = document.createTextNode('\u00D7')
-//   span.className = 'close'
-//   span.appendChild(txt)
-//   liItems[i].appendChild(span)
-// }
+for (let i = 0; i < liItems.length; i++) {
+  const deleteButton = document.createElement('i')
+  let itemValue = liItems[i].textContent
+  let itemStoredTextContent = document.createTextNode(itemValue)
+
+  deleteButton.classList.add('fa-solid')
+  deleteButton.classList.add('fa-circle-minus')
+  deleteButton.classList.add('delete')
+
+  liItems[i].textContent = ''
+  liItems[i].appendChild(deleteButton)
+  liItems[i].appendChild(itemStoredTextContent)
+}
 
 const newItem = () => {
   const ulTodo = document.querySelector('[data-todo-ul]')
@@ -182,23 +189,23 @@ const newItem = () => {
   let inputTodoValue = inputTodo.value
   const inputTextNode = document.createTextNode(inputTodoValue)
   const liCreate = document.createElement('li')
-  let iClose = document.createElement('i')
+  const deleteButton = document.createElement('i')
+
+  deleteButton.classList.add('fa-solid')
+  deleteButton.classList.add('fa-circle-minus')
+  deleteButton.classList.add('delete')
 
   liCreate.setAttribute('data-todo-item', '')
 
-  iClose.classList.add('fa-solid')
-  iClose.classList.add('fa-circle-minus')
-  iClose.classList.add('close')
-
-  liCreate.appendChild(iClose)
+  liCreate.appendChild(deleteButton)
   liCreate.appendChild(inputTextNode)
 
   inputTodoValue === '' ? alert('Item cannot be empty') : ulTodo.appendChild(liCreate)
 
   inputTodo.value = ''
 
-  for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].onclick = function () {
       let div = this.parentElement
       div.style.display = 'none'
     }
