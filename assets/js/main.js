@@ -149,7 +149,7 @@ nameSubmit.addEventListener('click', () => {
   let nameInputValue = nameInput.value
 
   nameInputValue === ''
-    ? alert(`Name cannot be empty.`)
+    ? alert('Field cannot be empty.')
     : (localStorage.setItem(nameLocalStorageKey, nameInputValue), getName(nameInputValue))
 })
 
@@ -220,7 +220,7 @@ const newItem = (ul, button, input) => {
   liCreate.appendChild(deleteButton)
   liCreate.appendChild(inputTextNode)
 
-  inputValue === '' ? alert('Input cannot be empty') : ul.appendChild(liCreate)
+  inputValue === '' ? alert('Field cannot be empty') : ul.appendChild(liCreate)
 
   input.value = ''
 
