@@ -165,7 +165,7 @@ ul {
 
 .todo-menu {
   box-shadow: rgba(0, 0, 0, 0.19) 0vmin 1vmin 2vmin, rgba(0, 0, 0, 0.23) 0vmin 0.6vmin 0.6vmin;
-  display: block;
+  display: none;
   overflow: scroll;
   height: 70vmin;
   width: 95vmin;

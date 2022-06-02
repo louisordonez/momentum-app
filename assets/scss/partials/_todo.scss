@@ -19,7 +19,7 @@
 .todo-menu {
   @include menu-box-shadow;
 
-  display: block;
+  display: none;
   overflow: scroll;
   height: 70vmin;
   width: 95vmin;
