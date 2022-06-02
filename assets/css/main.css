@@ -311,12 +311,17 @@ li {
 .todo-list li:nth-child(odd) {
   background: #f8f9fa !important;
 }
+.todo-list li:nth-child(even) {
+  background: #e9ecef !important;
+}
 .todo-list li:hover {
   background: #dee2e6 !important;
 }
-.todo-list li.done {
-  background: #adb5bd !important;
-  text-decoration: line-through;
+.todo-list li .fa-circle-minus:before {
+  content: "\f05d" !important;
+}
+.todo-list li .delete:hover {
+  color: #198754 !important;
 }
 
 .focus {

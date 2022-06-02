@@ -64,13 +64,20 @@
       background: $gray-100 !important;
     }
 
+    &:nth-child(even) {
+      background: $gray-200 !important;
+    }
+
     &:hover {
       background: $gray-300 !important;
     }
 
-    &.done {
-      background: $gray-500 !important;
-      text-decoration: line-through;
+    .fa-circle-minus:before {
+      content: '\f05d' !important;
+    }
+
+    .delete:hover {
+      color: $green !important;
     }
   }
 }

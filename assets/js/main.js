@@ -8,7 +8,7 @@ const body = document.querySelector('body')
 const getTime = () => {
   let date = new Date()
   let currentRegularTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  let currentHours = date.getHours()
+  let currentHours = `${date.getHours() < 10 ? '0' : ''}${date.getHours()}`
   let currentMinutes = `${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`
   let currentMilitaryTime = `${currentHours}${currentMinutes}`
 
@@ -22,7 +22,7 @@ const setClock = (time) => {
 
 const setGreeting = (time) => {
   const checkGreetingTime = (time) => {
-    if (time > '2359' && time < '1200') {
+    if (time >= '0000' && time < '1200') {
       // Until 11:59 AM
       return 'Good morning, '
     } else if (time > '1159' && time < '1800') {
@@ -39,7 +39,7 @@ const setGreeting = (time) => {
 
 const setBackground = (time) => {
   const checkBackgroundTime = (time) => {
-    if (time > '2359' && time < '0530') {
+    if (time >= '0000' && time < '0530') {
       // Until 05:29 AM
       return `url('./assets/img/bg-evening.png')`
     } else if (time > '0529' && time < '0630') {
@@ -150,14 +150,16 @@ nameSubmit.addEventListener('click', () => {
 
   nameInputValue === ''
     ? alert('Field cannot be empty.')
-    : (localStorage.setItem(nameLocalStorageKey, nameInputValue), getName(nameInputValue))
+    : (localStorage.setItem(nameLocalStorageKey, nameInputValue),
+      getName(nameInputValue),
+      alert('Submitted successfully.'))
 })
 
 const getName = (item) => {
   let nameItem = localStorage.getItem(nameLocalStorageKey, item)
   nameInput.value = nameItem
 
-  nameItem !== null ? (nameText.textContent = nameItem) : (nameText.textContent = 'User')
+  nameItem !== null ? (nameText.textContent = `${nameItem}.`) : (nameText.textContent = 'User.')
 }
 
 getName(nameLocalStorageKey)
@@ -170,15 +172,12 @@ const todoInput = document.querySelector('[data-todo-input]')
 const quoteAddButton = document.querySelector('[data-quote-add]')
 const quoteList = document.querySelector('[data-quote-ul]')
 const quoteItems = document.querySelectorAll('[data-quote-item]')
+const quoteInput = document.querySelector('[data-quote-input]')
 const deleteButtons = document.getElementsByClassName('delete')
 
-const quoteInput = document.querySelector('[data-quote-input]')
-
 const addListItem = (ul, button, input) => {
-  button.addEventListener('click', () => newItem(ul, button, input))
+  button.addEventListener('click', () => newItem(ul, input, parseArray()))
 }
-
-todoList.addEventListener('click', (ev) => (ev.target.tagName === 'LI' ? ev.target.classList.toggle('done') : false))
 
 const addDeleteButton = (element) => {
   for (let i = 0; i < element.length; i++) {
@@ -205,7 +204,7 @@ function deleteItems(element) {
   }
 }
 
-const newItem = (ul, button, input) => {
+const newItem = (ul, input, array) => {
   let inputValue = input.value
   const inputTextNode = document.createTextNode(inputValue)
   const liCreate = document.createElement('li')
@@ -215,19 +214,72 @@ const newItem = (ul, button, input) => {
   deleteButton.classList.add('fa-circle-minus')
   deleteButton.classList.add('delete')
 
-  button === todoAddButton ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
+  ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
 
   liCreate.appendChild(deleteButton)
   liCreate.appendChild(inputTextNode)
 
-  inputValue === '' ? alert('Field cannot be empty.') : ul.appendChild(liCreate)
+  if (inputValue === '') {
+    alert('Field cannot be empty.')
+  } else {
+    ul.appendChild(liCreate)
+
+    if (ul === todoList) {
+      array.push(inputValue)
+      localStorage.setItem('items', JSON.stringify(array))
+    } else {
+      quotesArr.push(inputValue)
+      console.log(`quote: ${quotesArr}`)
+      console.log(quotesArr)
+      localStorage.setItem('quotes', JSON.stringify(quotesArr))
+    }
+  }
 
   input.value = ''
-
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].onclick = function () {
       let div = this.parentElement
       div.style.display = 'none'
+      ul === todoList ? removeFromList(itemsArr, i) : removeFromList(quotesArr, i)
+    }
+  }
+}
+
+const removeFromList = (arr, i) => {
+  let index = quotesArr.indexOf(i)
+  arr.splice(index, 1)
+  console.log(arr)
+}
+
+const parseArray = () => {
+  let itemsArray = localStorage.getItem('items')
+  itemsArray = JSON.parse(itemsArray)
+  console.log(itemsArray)
+  if (itemsArray !== null) {
+    return itemsArray
+  } else {
+    let emptyArr = []
+    return emptyArr
+  }
+}
+
+const showListItems = (array) => {
+  if (array !== null) {
+    for (let i = 0; i < array.length; i++) {
+      let inputValue = array[i]
+      const inputTextNode = document.createTextNode(inputValue)
+      const liCreate = document.createElement('li')
+      const deleteButton = document.createElement('i')
+
+      deleteButton.classList.add('fa-solid')
+      deleteButton.classList.add('fa-circle-minus')
+      deleteButton.classList.add('delete')
+
+      liCreate.setAttribute('data-quote-item', '')
+
+      liCreate.appendChild(deleteButton)
+      liCreate.appendChild(inputTextNode)
+      todoList.appendChild(liCreate)
     }
   }
 }
@@ -237,3 +289,4 @@ addListItem(todoList, todoAddButton, todoInput)
 addDeleteButton(quoteItems)
 addDeleteButton(todoItems)
 deleteItems(deleteButtons)
+showListItems(parseArray())
