@@ -7,6 +7,7 @@
   font-size: 62.5%;
 }
 
+html,
 body {
   font-family: "Lato", sans-serif;
   color: white;
@@ -15,6 +16,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  height: 100vh;
 }
 
 a {
@@ -38,14 +40,18 @@ button {
 }
 
 .settings button {
+  color: white;
   border: none;
   background-color: transparent;
 }
-.settings button i {
+.settings button:hover {
+  color: #d3d3d3;
+}
+.settings i {
   font-size: 2vmax;
 }
-.settings button i {
-  color: white;
+.settings button {
+  margin: 2vmin;
 }
 
 .clock {
@@ -68,44 +74,59 @@ button {
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 2rem;
+  bottom: 5vmin;
   left: 0;
   right: 0;
 }
 .quote div {
-  width: 50vw;
+  width: 90vmin;
 }
 .quote p {
   text-align: center;
   font-size: 2.6vmin;
 }
 
+.todo {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .todo button {
+  color: white;
   border: none;
   background-color: transparent;
 }
-.todo button i {
+.todo button:hover {
+  color: #d3d3d3;
+}
+.todo i {
   font-size: 2vmax;
 }
-.todo button i {
-  color: white;
+.todo button {
+  margin: 2vmin;
 }
 
 .focus {
-  margin-top: 3rem;
+  margin-top: 3vmin;
   text-align: center;
 }
 .focus span {
   font-size: 5.3vmin;
 }
 .focus button {
-  margin-left: 1rem;
   color: white;
   border: none;
   background-color: transparent;
 }
-.focus button i {
+.focus button:hover {
+  color: #d3d3d3;
+}
+.focus i {
   font-size: 2vmax;
+}
+.focus button {
+  margin-left: 1vmin;
 }
 .focus button:hover {
   color: #d52e3f !important;
@@ -116,16 +137,24 @@ button {
   text-align: center;
   background: none;
   border: none;
-  border-bottom: 2px solid white;
+  border-bottom: 0.5vmin solid white;
   color: white;
+  width: 80vmin;
+}
+.focus-input-container span {
+  font-size: 4.3vmin;
 }
 
 .center-screen {
   position: absolute;
-  top: 50%;
   left: 50%;
-  margin-right: -50%;
+  top: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  width: 100vmin;
 }
 
 .fade-bg {

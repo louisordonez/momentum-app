@@ -2,10 +2,14 @@
 @use './mixins' as *;
 
 .todo {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @include i-button-style;
+
   button {
-    @include i-button-style;
-    i {
-      color: white;
-    }
+    margin: 2vmin;
   }
 }

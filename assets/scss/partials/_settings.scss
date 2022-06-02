@@ -2,10 +2,9 @@
 @use './mixins' as *;
 
 .settings {
+  @include i-button-style;
+
   button {
-    @include i-button-style;
-    i {
-      color: white;
-    }
+    margin: 2vmin;
   }
 }

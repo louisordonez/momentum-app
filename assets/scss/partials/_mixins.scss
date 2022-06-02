@@ -1,8 +1,15 @@
 @use './variables' as *;
 
 @mixin i-button-style {
-  border: none;
-  background-color: transparent;
+  button {
+    color: white;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      color: $light-gray;
+    }
+  }
 
   i {
     font-size: 2vmax;
