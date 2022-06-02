@@ -40,6 +40,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  word-break: break-all;
+}
+
 .settings button {
   color: white;
   border: none;
