@@ -220,7 +220,7 @@ const newItem = (ul, button, input) => {
   liCreate.appendChild(deleteButton)
   liCreate.appendChild(inputTextNode)
 
-  inputValue === '' ? alert('Field cannot be empty') : ul.appendChild(liCreate)
+  inputValue === '' ? alert('Field cannot be empty.') : ul.appendChild(liCreate)
 
   input.value = ''
 
