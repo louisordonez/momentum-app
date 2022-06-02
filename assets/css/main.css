@@ -320,7 +320,7 @@ li {
 .todo-list li .fa-circle-minus:before {
   content: "\f05d" !important;
 }
-.todo-list li .delete:hover {
+.todo-list li .remove:hover {
   color: #198754 !important;
 }
 
@@ -412,13 +412,13 @@ li {
   color: #ced4da !important;
 }
 
-.delete {
+.remove {
   color: black !important;
   font-size: 2vmin;
   margin-left: 1vmin;
   margin-right: 1vmin;
 }
 
-.delete:hover {
+.remove:hover {
   color: #dc3545 !important;
 }/*# sourceMappingURL=main.css.map */

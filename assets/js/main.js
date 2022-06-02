@@ -173,29 +173,29 @@ const quoteAddButton = document.querySelector('[data-quote-add]')
 const quoteList = document.querySelector('[data-quote-ul]')
 const quoteItems = document.querySelectorAll('[data-quote-item]')
 const quoteInput = document.querySelector('[data-quote-input]')
-const deleteButtons = document.getElementsByClassName('delete')
+const removeButtons = document.getElementsByClassName('remove')
 
 const addListItem = (ul, button, input) => {
-  button.addEventListener('click', () => newItem(ul, input, parseArray()))
+  button.addEventListener('click', () => newItem(ul, input, parseArray(ul)))
 }
 
-const addDeleteButton = (element) => {
+const addRemoveButton = (element) => {
   for (let i = 0; i < element.length; i++) {
-    const deleteButton = document.createElement('i')
+    const removeButton = document.createElement('i')
     let itemValue = element[i].textContent
     let itemStoredTextContent = document.createTextNode(itemValue)
 
-    deleteButton.classList.add('fa-solid')
-    deleteButton.classList.add('fa-circle-minus')
-    deleteButton.classList.add('delete')
+    removeButton.classList.add('fa-solid')
+    removeButton.classList.add('fa-circle-minus')
+    removeButton.classList.add('remove')
 
     element[i].textContent = ''
-    element[i].appendChild(deleteButton)
+    element[i].appendChild(removeButton)
     element[i].appendChild(itemStoredTextContent)
   }
 }
 
-function deleteItems(element) {
+function removeItems(element) {
   for (let i = 0; i < element.length; i++) {
     element[i].onclick = function () {
       let div = this.parentElement
@@ -208,39 +208,34 @@ const newItem = (ul, input, array) => {
   let inputValue = input.value
   const inputTextNode = document.createTextNode(inputValue)
   const liCreate = document.createElement('li')
-  const deleteButton = document.createElement('i')
+  const removeButton = document.createElement('i')
 
-  deleteButton.classList.add('fa-solid')
-  deleteButton.classList.add('fa-circle-minus')
-  deleteButton.classList.add('delete')
+  removeButton.classList.add('fa-solid')
+  removeButton.classList.add('fa-circle-minus')
+  removeButton.classList.add('remove')
 
   ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
 
-  liCreate.appendChild(deleteButton)
+  liCreate.appendChild(removeButton)
   liCreate.appendChild(inputTextNode)
 
   if (inputValue === '') {
     alert('Field cannot be empty.')
   } else {
     ul.appendChild(liCreate)
+    array.push(inputValue)
 
-    if (ul === todoList) {
-      array.push(inputValue)
-      localStorage.setItem('items', JSON.stringify(array))
-    } else {
-      quotesArr.push(inputValue)
-      console.log(`quote: ${quotesArr}`)
-      console.log(quotesArr)
-      localStorage.setItem('quotes', JSON.stringify(quotesArr))
-    }
+    ul === todoList
+      ? localStorage.setItem('items', JSON.stringify(array))
+      : localStorage.setItem('quotes', JSON.stringify(array))
   }
 
   input.value = ''
-  for (let i = 0; i < deleteButtons.length; i++) {
-    deleteButtons[i].onclick = function () {
+  for (let i = 0; i < removeButtons.length; i++) {
+    removeButtons[i].onclick = function () {
       let div = this.parentElement
       div.style.display = 'none'
-      ul === todoList ? removeFromList(itemsArr, i) : removeFromList(quotesArr, i)
+      // ul === todoList ? removeFromList(itemsArr, i) : removeFromList(quotesArr, i)
     }
   }
 }
@@ -251,10 +246,13 @@ const removeFromList = (arr, i) => {
   console.log(arr)
 }
 
-const parseArray = () => {
-  let itemsArray = localStorage.getItem('items')
+const parseArray = (ul) => {
+  let itemsArray
+
+  ul === todoList ? (itemsArray = localStorage.getItem('items')) : (itemsArray = localStorage.getItem('quotes'))
+
   itemsArray = JSON.parse(itemsArray)
-  console.log(itemsArray)
+
   if (itemsArray !== null) {
     return itemsArray
   } else {
@@ -263,30 +261,31 @@ const parseArray = () => {
   }
 }
 
-const showListItems = (array) => {
+const showListItems = (ul, array) => {
   if (array !== null) {
     for (let i = 0; i < array.length; i++) {
       let inputValue = array[i]
       const inputTextNode = document.createTextNode(inputValue)
       const liCreate = document.createElement('li')
-      const deleteButton = document.createElement('i')
+      const removeButton = document.createElement('i')
 
-      deleteButton.classList.add('fa-solid')
-      deleteButton.classList.add('fa-circle-minus')
-      deleteButton.classList.add('delete')
+      removeButton.classList.add('fa-solid')
+      removeButton.classList.add('fa-circle-minus')
+      removeButton.classList.add('remove')
 
-      liCreate.setAttribute('data-quote-item', '')
+      ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
 
-      liCreate.appendChild(deleteButton)
+      liCreate.appendChild(removeButton)
       liCreate.appendChild(inputTextNode)
-      todoList.appendChild(liCreate)
+      ul.appendChild(liCreate)
     }
   }
 }
 
 addListItem(quoteList, quoteAddButton, quoteInput)
 addListItem(todoList, todoAddButton, todoInput)
-addDeleteButton(quoteItems)
-addDeleteButton(todoItems)
-deleteItems(deleteButtons)
-showListItems(parseArray())
+addRemoveButton(quoteItems)
+addRemoveButton(todoItems)
+removeItems(removeButtons)
+showListItems(todoList, parseArray(todoList))
+showListItems(quoteList, parseArray(quoteList))
