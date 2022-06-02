@@ -17,6 +17,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
+  width: 100vw;
 }
 
 a {
@@ -45,13 +46,63 @@ button {
   background-color: transparent;
 }
 .settings button:hover {
-  color: #d3d3d3;
+  color: #e2e6ea;
 }
 .settings i {
   font-size: 2vmax;
 }
 .settings button {
   margin: 2vmin;
+}
+
+.settings-menu {
+  box-shadow: rgba(0, 0, 0, 0.19) 0vmin 1vmin 2vmin, rgba(0, 0, 0, 0.23) 0vmin 0.6vmin 0.6vmin;
+  margin-left: 2vmin;
+  width: 60vmin;
+  background-color: white;
+  border-radius: 1.5vmin;
+  border-top-left-radius: 2vmin;
+  border-top-right-radius: 2vmin;
+}
+.settings-menu > div:nth-child(1) {
+  background-color: #007bff;
+  border-top-left-radius: 1.5vmin;
+  border-top-right-radius: 1.5vmin;
+}
+.settings-menu h1 {
+  text-align: center;
+  font-size: 4vmin;
+  padding: 1vmin;
+}
+
+.name-input-container {
+  padding: 2vmin;
+  text-align: center;
+}
+.name-input-container input[type=text] {
+  padding: 1vmin;
+  font-size: 3vmin;
+  color: black;
+  background: none;
+  border: none;
+  border-bottom: 0.5vmin solid black;
+  width: 90%;
+}
+.name-input-container div {
+  margin-top: 2vmin;
+}
+.name-input-container div button {
+  font-size: 2vmin;
+  background-color: #28a745;
+  color: white !important;
+  padding: 1.4vmin 2vmin;
+  margin: 0.8vmin 0;
+  border: none;
+  border-radius: 0.4vmin;
+  width: 90%;
+}
+.name-input-container div button:hover {
+  background-color: #218838;
 }
 
 .clock {
@@ -98,13 +149,17 @@ button {
   background-color: transparent;
 }
 .todo button:hover {
-  color: #d3d3d3;
+  color: #e2e6ea;
 }
 .todo i {
   font-size: 2vmax;
 }
 .todo button {
   margin: 2vmin;
+}
+
+.todo-menu {
+  display: none;
 }
 
 .focus {
@@ -120,7 +175,7 @@ button {
   background-color: transparent;
 }
 .focus button:hover {
-  color: #d3d3d3;
+  color: #e2e6ea;
 }
 .focus i {
   font-size: 2vmax;
@@ -129,7 +184,7 @@ button {
   margin-left: 1vmin;
 }
 .focus button:hover {
-  color: #d52e3f !important;
+  color: #dc3545 !important;
 }
 
 .focus-input-container input[type=text] {
@@ -192,5 +247,5 @@ button {
 }
 
 .active-btn {
-  color: #d3d3d3 !important;
+  color: #e2e6ea !important;
 }/*# sourceMappingURL=main.css.map */

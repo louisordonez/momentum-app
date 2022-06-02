@@ -128,39 +128,39 @@ settingsButton.addEventListener('click', () => showMenu(settingsMenu, settingsBu
 todoButton.addEventListener('click', () => showMenu(todoMenu, todoButton))
 
 const showMenu = (menu, button) => {
-  // menu.classList.toggle('show')
-  // button.classList.toggle('active-btn')
+  menu.classList.toggle('show')
+  button.classList.toggle('active-btn')
 
   const disableButton = (button) => {
     button === todoButton ? settingsButton.toggleAttribute('disabled') : todoButton.toggleAttribute('disabled')
   }
 
-  // addAnimation(menu)
+  addAnimation(menu)
   disableButton(button)
 }
 
 // Settings
-// const nameInput = document.querySelector('[data-settings-menu-name-input]')
-// const settingsSubmitButton = document.querySelector('[data-settings-menu-submit]')
-// const nameText = document.querySelector('[data-name]')
-// const nameLocalStorageKey = 'name'
+const nameInput = document.querySelector('[data-settings-menu-name-input]')
+const nameSubmit = document.querySelector('[data-settings-menu-name-submit]')
+const nameText = document.querySelector('[data-name]')
+const nameLocalStorageKey = 'name'
 
-// settingsSubmitButton.addEventListener('click', () => {
-//   let nameInputValue = nameInput.value
+nameSubmit.addEventListener('click', () => {
+  let nameInputValue = nameInput.value
 
-//   nameInputValue === ''
-//     ? alert(`Name cannot be empty.`)
-//     : (localStorage.setItem(nameLocalStorageKey, nameInputValue), getName(nameInputValue))
-// })
+  nameInputValue === ''
+    ? alert(`Name cannot be empty.`)
+    : (localStorage.setItem(nameLocalStorageKey, nameInputValue), getName(nameInputValue))
+})
 
-// const getName = (item) => {
-//   let nameItem = localStorage.getItem(nameLocalStorageKey, item)
-//   nameInput.value = nameItem
+const getName = (item) => {
+  let nameItem = localStorage.getItem(nameLocalStorageKey, item)
+  nameInput.value = nameItem
 
-//   nameItem !== null ? (nameText.textContent = nameItem) : (nameText.textContent = 'User')
-// }
+  nameItem !== null ? (nameText.textContent = nameItem) : (nameText.textContent = 'User')
+}
 
-// getName(nameLocalStorageKey)
+getName(nameLocalStorageKey)
 
 // const quoteUl = document.querySelector('[data-quote-ul]')
 // const quoteLi = document.querySelector('[data-quote-li]')

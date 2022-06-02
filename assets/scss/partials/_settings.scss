@@ -8,3 +8,46 @@
     margin: 2vmin;
   }
 }
+
+.settings-menu {
+  > div:nth-child(1) {
+    background-color: $blue;
+    border-top-left-radius: 1.5vmin;
+    border-top-right-radius: 1.5vmin;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 4vmin;
+    padding: 1vmin;
+  }
+
+  @include menu-box-shadow;
+  margin-left: 2vmin;
+  width: 60vmin;
+  background-color: white;
+  border-radius: 1.5vmin;
+  border-top-left-radius: 2vmin;
+  border-top-right-radius: 2vmin;
+}
+
+.name-input-container {
+  padding: 2vmin;
+  text-align: center;
+
+  input[type='text'] {
+    padding: 1vmin;
+    font-size: 3vmin;
+    color: black;
+    background: none;
+    border: none;
+    border-bottom: 0.5vmin solid black;
+    width: 90%;
+  }
+
+  div {
+    margin-top: 2vmin;
+
+    @include menu-submit-btn;
+  }
+}
