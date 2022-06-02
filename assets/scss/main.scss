@@ -38,5 +38,16 @@
 }
 
 .active-btn {
-  color: $light-gray !important;
+  color: $gray-400 !important;
+}
+
+.delete {
+  color: black !important;
+  font-size: 2vmin;
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+}
+
+.delete:hover {
+  color: $red !important;
 }

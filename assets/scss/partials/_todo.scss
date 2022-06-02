@@ -1,54 +1,42 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-.todo {
-  @include i-button-style;
-
+%todo-elements-position {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.todo {
+  @include i-button-style;
+
+  @extend %todo-elements-position;
 
   button {
-    position: absolute;
-    top: 0;
-    right: 0;
+    @extend %todo-elements-position;
+
     margin: 2vmin;
   }
 }
 
 .todo-menu {
   @include menu-box-shadow;
+  @include menu-style;
 
-  display: none;
-  overflow: scroll;
-  height: 70vmin;
-  width: 95vmin;
   margin-top: 7.5vmin;
   margin-right: 2vmin;
   margin-left: 2vmin;
-  background-color: white;
-  border-radius: 1.5vmin;
 
   h1 {
-    background-color: $blue;
-    text-align: center;
-    font-size: $text-font-size;
-    padding: 1vmin;
+    @include menu-h1-style;
   }
 }
 
 .todo-input-container {
-  padding: 2vmin;
-  text-align: center;
+  @include menu-container-style;
 
   input[type='text'] {
-    padding: 1vmin;
-    font-size: $text-font-size;
-    color: black;
-    background: none;
-    border: none;
-    border-bottom: 0.5vmin solid black;
-    width: 90%;
+    @include menu-input-text-style;
   }
 
   div {
@@ -58,66 +46,31 @@
   }
 
   h2 {
-    color: black;
-    font-size: $text-font-size;
+    @include menu-h2-style;
   }
 
   span {
-    color: $green;
-    cursor: pointer;
-
-    &:hover {
-      color: $green-hover;
-    }
-
-    i {
-      font-size: $text-font-size;
-    }
+    @include menu-span-style;
   }
 }
 
 .todo-list {
-  font-size: $text-font-size;
-
-  i {
-    font-size: 1.4vmax;
-  }
-
-  ul {
-    color: black;
-  }
+  @include menu-list-style;
 
   li {
-    color: black;
-    text-align: left;
-    margin-left: 3vmin;
-    margin-right: 3vmin;
-    padding: 1vmin;
-    transition: 0.2s;
-    cursor: pointer;
+    @include menu-li-stlye;
 
     &:nth-child(odd) {
-      background: #f9f9f9 !important;
+      background: $gray-100 !important;
     }
 
     &:hover {
-      background: #ddd !important;
+      background: $gray-300 !important;
     }
 
     &.done {
-      background: #888 !important;
+      background: $gray-500 !important;
       text-decoration: line-through;
     }
   }
-}
-
-.delete {
-  color: black !important;
-  font-size: 2vmin;
-  margin-left: 1vmin;
-  margin-right: 1vmin;
-}
-
-.delete:hover {
-  color: $red !important;
 }

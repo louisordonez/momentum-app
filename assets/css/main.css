@@ -10,7 +10,7 @@
 html,
 body {
   font-family: "Lato", sans-serif;
-  color: white;
+  color: #fff;
   background-image: url("../img/bg-early-morning.png");
   background-color: rgba(0, 0, 0, 0.8);
   background-repeat: no-repeat;
@@ -45,12 +45,12 @@ li {
 }
 
 .settings button {
-  color: white;
+  color: #fff;
   border: none;
   background-color: transparent;
 }
 .settings button:hover {
-  color: #e2e6ea;
+  color: #ced4da;
 }
 .settings i {
   font-size: 2vmax;
@@ -63,37 +63,38 @@ li {
   box-shadow: rgba(0, 0, 0, 0.19) 0vmin 1vmin 2vmin, rgba(0, 0, 0, 0.23) 0vmin 0.6vmin 0.6vmin;
   display: none;
   overflow-y: scroll;
-  margin-left: 2vmin;
+  height: 70vmin;
   width: 95vmin;
-  background-color: white;
+  background-color: #fff;
   border-radius: 1.5vmin;
+  margin-left: 2vmin;
 }
 .settings-menu h1 {
-  background-color: #007bff;
+  background-color: #0d6efd;
   text-align: center;
   font-size: 4vmin;
   padding: 1vmin;
 }
 
-.name-input-container, .quote-input-container {
+.name-input-container {
   padding: 2vmin;
   text-align: center;
 }
-.name-input-container input[type=text], .quote-input-container input[type=text] {
+.name-input-container input[type=text] {
   padding: 1vmin;
   font-size: 4vmin;
-  color: black;
+  color: #000;
   background: none;
   border: none;
-  border-bottom: 0.5vmin solid black;
+  border-bottom: 0.5vmin solid #000;
   width: 90%;
 }
-.name-input-container div, .quote-input-container div {
+.name-input-container div {
   margin-top: 2vmin;
 }
-.name-input-container div button, .quote-input-container div button {
+.name-input-container div button {
   font-size: 2vmin;
-  background-color: #28a745;
+  background-color: #198754;
   color: white !important;
   padding: 1.4vmin 2vmin;
   margin: 0.8vmin 0;
@@ -101,15 +102,73 @@ li {
   border-radius: 0.4vmin;
   width: 90%;
 }
-.name-input-container div button:hover, .quote-input-container div button:hover {
-  background-color: #218838;
+.name-input-container div button:hover {
+  background-color: #157347;
 }
 
+.quote-input-container {
+  padding: 2vmin;
+  text-align: center;
+}
+.quote-input-container input[type=text] {
+  padding: 1vmin;
+  font-size: 4vmin;
+  color: #000;
+  background: none;
+  border: none;
+  border-bottom: 0.5vmin solid #000;
+  width: 90%;
+  width: 85%;
+}
+.quote-input-container div {
+  margin-top: 2vmin;
+}
+.quote-input-container div button {
+  font-size: 2vmin;
+  background-color: #198754;
+  color: white !important;
+  padding: 1.4vmin 2vmin;
+  margin: 0.8vmin 0;
+  border: none;
+  border-radius: 0.4vmin;
+  width: 90%;
+}
+.quote-input-container div button:hover {
+  background-color: #157347;
+}
 .quote-input-container h2 {
+  color: #000;
   font-size: 4vmin;
 }
 .quote-input-container span {
+  color: #198754;
   cursor: pointer;
+}
+.quote-input-container span:hover {
+  color: #157347;
+}
+.quote-input-container span i {
+  font-size: 4vmin;
+}
+
+.quote-list {
+  font-size: 4vmin;
+}
+.quote-list i {
+  font-size: 1.6vmax;
+}
+.quote-list ul {
+  color: #000;
+}
+.quote-list li {
+  color: #000;
+  text-align: left;
+  margin-left: 3vmin;
+  margin-right: 3vmin;
+  padding: 1vmin;
+  transition: 0.2s;
+  cursor: pointer;
+  cursor: auto;
 }
 
 .clock {
@@ -144,43 +203,41 @@ li {
   font-size: 2.6vmin;
 }
 
-.todo {
+.todo button, .todo {
   position: absolute;
   top: 0;
   right: 0;
 }
+
 .todo button {
-  color: white;
+  color: #fff;
   border: none;
   background-color: transparent;
 }
 .todo button:hover {
-  color: #e2e6ea;
+  color: #ced4da;
 }
 .todo i {
   font-size: 2vmax;
 }
 .todo button {
-  position: absolute;
-  top: 0;
-  right: 0;
   margin: 2vmin;
 }
 
 .todo-menu {
   box-shadow: rgba(0, 0, 0, 0.19) 0vmin 1vmin 2vmin, rgba(0, 0, 0, 0.23) 0vmin 0.6vmin 0.6vmin;
   display: none;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 70vmin;
   width: 95vmin;
+  background-color: #fff;
+  border-radius: 1.5vmin;
   margin-top: 7.5vmin;
   margin-right: 2vmin;
   margin-left: 2vmin;
-  background-color: white;
-  border-radius: 1.5vmin;
 }
 .todo-menu h1 {
-  background-color: #007bff;
+  background-color: #0d6efd;
   text-align: center;
   font-size: 4vmin;
   padding: 1vmin;
@@ -193,10 +250,10 @@ li {
 .todo-input-container input[type=text] {
   padding: 1vmin;
   font-size: 4vmin;
-  color: black;
+  color: #000;
   background: none;
   border: none;
-  border-bottom: 0.5vmin solid black;
+  border-bottom: 0.5vmin solid #000;
   width: 90%;
 }
 .todo-input-container div {
@@ -204,7 +261,7 @@ li {
 }
 .todo-input-container div button {
   font-size: 2vmin;
-  background-color: #28a745;
+  background-color: #198754;
   color: white !important;
   padding: 1.4vmin 2vmin;
   margin: 0.8vmin 0;
@@ -213,18 +270,18 @@ li {
   width: 90%;
 }
 .todo-input-container div button:hover {
-  background-color: #218838;
+  background-color: #157347;
 }
 .todo-input-container h2 {
-  color: black;
+  color: #000;
   font-size: 4vmin;
 }
 .todo-input-container span {
-  color: #28a745;
+  color: #198754;
   cursor: pointer;
 }
 .todo-input-container span:hover {
-  color: #218838;
+  color: #157347;
 }
 .todo-input-container span i {
   font-size: 4vmin;
@@ -234,13 +291,13 @@ li {
   font-size: 4vmin;
 }
 .todo-list i {
-  font-size: 1.4vmax;
+  font-size: 1.6vmax;
 }
 .todo-list ul {
-  color: black;
+  color: #000;
 }
 .todo-list li {
-  color: black;
+  color: #000;
   text-align: left;
   margin-left: 3vmin;
   margin-right: 3vmin;
@@ -249,25 +306,14 @@ li {
   cursor: pointer;
 }
 .todo-list li:nth-child(odd) {
-  background: #f9f9f9 !important;
+  background: #f8f9fa !important;
 }
 .todo-list li:hover {
-  background: #ddd !important;
+  background: #dee2e6 !important;
 }
 .todo-list li.done {
-  background: #888 !important;
+  background: #adb5bd !important;
   text-decoration: line-through;
-}
-
-.delete {
-  color: black !important;
-  font-size: 2vmin;
-  margin-left: 1vmin;
-  margin-right: 1vmin;
-}
-
-.delete:hover {
-  color: #dc3545 !important;
 }
 
 .focus {
@@ -275,12 +321,12 @@ li {
   text-align: center;
 }
 .focus button {
-  color: white;
+  color: #fff;
   border: none;
   background-color: transparent;
 }
 .focus button:hover {
-  color: #e2e6ea;
+  color: #ced4da;
 }
 .focus i {
   font-size: 2vmax;
@@ -300,8 +346,8 @@ li {
   text-align: center;
   background: none;
   border: none;
-  border-bottom: 0.5vmin solid white;
-  color: white;
+  border-bottom: 0.5vmin solid #fff;
+  color: #fff;
   width: 80vmin;
 }
 .focus-input-container span {
@@ -355,5 +401,16 @@ li {
 }
 
 .active-btn {
-  color: #e2e6ea !important;
+  color: #ced4da !important;
+}
+
+.delete {
+  color: black !important;
+  font-size: 2vmin;
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+}
+
+.delete:hover {
+  color: #dc3545 !important;
 }/*# sourceMappingURL=main.css.map */

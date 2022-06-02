@@ -11,34 +11,19 @@
 
 .settings-menu {
   @include menu-box-shadow;
-
-  display: none;
-  overflow-y: scroll;
+  @include menu-style;
   margin-left: 2vmin;
-  width: 95vmin;
-  background-color: white;
-  border-radius: 1.5vmin;
 
   h1 {
-    background-color: $blue;
-    text-align: center;
-    font-size: $text-font-size;
-    padding: 1vmin;
+    @include menu-h1-style;
   }
 }
 
 .name-input-container {
-  padding: 2vmin;
-  text-align: center;
+  @include menu-container-style;
 
   input[type='text'] {
-    padding: 1vmin;
-    font-size: $text-font-size;
-    color: black;
-    background: none;
-    border: none;
-    border-bottom: 0.5vmin solid black;
-    width: 90%;
+    @include menu-input-text-style;
   }
 
   div {
@@ -49,13 +34,34 @@
 }
 
 .quote-input-container {
-  @extend .name-input-container;
+  padding: 2vmin;
+  text-align: center;
+
+  input[type='text'] {
+    @include menu-input-text-style;
+    width: 85%;
+  }
+
+  div {
+    @include menu-submit-btn;
+
+    margin-top: 2vmin;
+  }
 
   h2 {
-    font-size: $text-font-size;
+    @include menu-h2-style;
   }
 
   span {
-    cursor: pointer;
+    @include menu-span-style;
+  }
+}
+
+.quote-list {
+  @include menu-list-style;
+
+  li {
+    @include menu-li-stlye;
+    cursor: auto;
   }
 }

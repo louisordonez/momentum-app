@@ -2,12 +2,12 @@
 
 @mixin i-button-style {
   button {
-    color: white;
+    color: $white;
     border: none;
     background-color: transparent;
 
     &:hover {
-      color: $light-gray;
+      color: $gray-400;
     }
   }
 
@@ -35,4 +35,75 @@
       background-color: $green-hover;
     }
   }
+}
+
+@mixin menu-style {
+  display: none;
+  overflow-y: scroll;
+  height: 70vmin;
+  width: 95vmin;
+  background-color: $white;
+  border-radius: 1.5vmin;
+}
+
+@mixin menu-h1-style {
+  background-color: $blue;
+  text-align: center;
+  font-size: $text-font-size;
+  padding: 1vmin;
+}
+
+@mixin menu-h2-style {
+  color: $black;
+  font-size: $text-font-size;
+}
+
+@mixin menu-container-style {
+  padding: 2vmin;
+  text-align: center;
+}
+
+@mixin menu-input-text-style {
+  padding: 1vmin;
+  font-size: $text-font-size;
+  color: $black;
+  background: none;
+  border: none;
+  border-bottom: 0.5vmin solid $black;
+  width: 90%;
+}
+
+@mixin menu-span-style {
+  color: $green;
+  cursor: pointer;
+
+  &:hover {
+    color: $green-hover;
+  }
+
+  i {
+    font-size: $text-font-size;
+  }
+}
+
+@mixin menu-list-style {
+  font-size: $text-font-size;
+
+  i {
+    font-size: 1.6vmax;
+  }
+
+  ul {
+    color: $black;
+  }
+}
+
+@mixin menu-li-stlye {
+  color: $black;
+  text-align: left;
+  margin-left: 3vmin;
+  margin-right: 3vmin;
+  padding: 1vmin;
+  transition: 0.2s;
+  cursor: pointer;
 }
