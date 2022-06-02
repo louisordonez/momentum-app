@@ -79,6 +79,10 @@
 .todo-list {
   font-size: $text-font-size;
 
+  i {
+    font-size: 1.4vmax;
+  }
+
   ul {
     color: black;
   }
@@ -97,32 +101,20 @@
     }
 
     &:hover {
-      background: #ddd;
+      background: #ddd !important;
     }
 
-    &.checked {
-      background: #888;
+    &.done {
+      background: #888 !important;
       text-decoration: line-through;
     }
-
-    // &.checked::before {
-    //   color: aqua;
-    //   content: '';
-    //   position: absolute;
-    //   border-color: blueviolet;
-    //   border-style: solid;
-    //   border-width: 0 2px 2px 0;
-    //   transform: rotate(45deg);
-    //   height: 15px;
-    //   width: 7px;
-    //   margin-left: 100px;
-    // }
   }
 }
 
 .delete {
   color: black !important;
   font-size: 2vmin;
+  margin-left: 1vmin;
   margin-right: 1vmin;
 }
 

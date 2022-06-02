@@ -229,6 +229,9 @@ ul {
 .todo-list {
   font-size: 4vmin;
 }
+.todo-list i {
+  font-size: 1.4vmax;
+}
 .todo-list ul {
   color: black;
 }
@@ -245,16 +248,17 @@ ul {
   background: #f9f9f9 !important;
 }
 .todo-list li:hover {
-  background: #ddd;
+  background: #ddd !important;
 }
-.todo-list li.checked {
-  background: #888;
+.todo-list li.done {
+  background: #888 !important;
   text-decoration: line-through;
 }
 
 .delete {
   color: black !important;
   font-size: 2vmin;
+  margin-left: 1vmin;
   margin-right: 1vmin;
 }
 

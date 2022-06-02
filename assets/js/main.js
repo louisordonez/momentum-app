@@ -164,23 +164,33 @@ getName(nameLocalStorageKey)
 
 // Settings - Todo
 const todoAddButton = document.querySelector('[data-todo-add]')
-const liItems = document.querySelectorAll('[data-todo-item]')
+const todoList = document.querySelector('[data-todo-ul]')
+const todoItems = document.querySelectorAll('[data-todo-item]')
 const deleteButtons = document.getElementsByClassName('delete')
 
 todoAddButton.addEventListener('click', () => newItem())
 
-for (let i = 0; i < liItems.length; i++) {
+todoList.addEventListener('click', (ev) => (ev.target.tagName === 'LI' ? ev.target.classList.toggle('done') : false))
+
+for (let i = 0; i < todoItems.length; i++) {
   const deleteButton = document.createElement('i')
-  let itemValue = liItems[i].textContent
+  let itemValue = todoItems[i].textContent
   let itemStoredTextContent = document.createTextNode(itemValue)
 
   deleteButton.classList.add('fa-solid')
   deleteButton.classList.add('fa-circle-minus')
   deleteButton.classList.add('delete')
 
-  liItems[i].textContent = ''
-  liItems[i].appendChild(deleteButton)
-  liItems[i].appendChild(itemStoredTextContent)
+  todoItems[i].textContent = ''
+  todoItems[i].appendChild(deleteButton)
+  todoItems[i].appendChild(itemStoredTextContent)
+}
+
+for (let i = 0; i < deleteButtons.length; i++) {
+  deleteButtons[i].onclick = function () {
+    let div = this.parentElement
+    div.style.display = 'none'
+  }
 }
 
 const newItem = () => {
