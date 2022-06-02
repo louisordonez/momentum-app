@@ -1,5 +1,13 @@
 @use 'partials' as *;
 
+.center-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
 .fade-bg {
   transition: 1s background-image ease;
 }

@@ -33,268 +33,101 @@ input:focus {
   outline: none;
 }
 
-.i-menu-style, .quote-ul li span, .quote-ul li, .quote-fieldset div.quote-header {
-  color: black;
-  font-size: 2rem;
-}
-
-.settings-submit-btn {
-  background-color: #04aa6d !important;
-  border: none;
-  color: white !important;
-  width: 100%;
-  padding: 2rem;
-  font-size: 1.6rem;
-  border-radius: 1rem;
-}
-.settings-submit-btn:hover {
-  background-color: #059862 !important;
-  color: white !important;
-}
-
-.settings {
-  position: absolute;
-  margin: 1rem;
-}
-.settings button {
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-.settings button:hover {
-  color: #d3d3d3;
+button {
   cursor: pointer;
 }
-.settings i {
-  padding: 1rem;
-  font-size: 2rem;
-}
 
-.settings-menu {
-  width: 100vmin;
-  max-width: 30vmax;
-  height: 80vh;
-  background-color: white;
-  overflow-y: scroll;
-  margin-top: 1rem;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  margin-left: 1rem;
-  margin-bottom: 5rem;
+.settings button {
+  border: none;
+  background-color: transparent;
 }
-
-.settings-menu-header {
-  color: black;
-  text-align: center;
-  background-color: #99a8bb;
-  padding: 1rem;
+.settings button i {
+  font-size: 2vmax;
 }
-.settings-menu-header span {
+.settings button i {
   color: white;
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.settings-menu-form {
-  padding: 1rem;
-  width: 100%;
-}
-
-.name-fieldset {
-  border: none;
-}
-.name-fieldset div {
-  text-align: center;
-  width: 100%;
-  padding: 2rem;
-}
-.name-fieldset input[type=text] {
-  background: none;
-  border: none;
-  border-bottom: 2px solid black;
-  color: black;
-  margin-top: 1rem;
-  padding: 1rem;
-  font-size: 2rem;
-  width: 100%;
-}
-
-.quote-fieldset {
-  border: none;
-}
-.quote-fieldset div.quote-add-container input[type=text] {
-  background: none;
-  border: none;
-  border-bottom: 2px solid black;
-  color: black;
-  padding: 1rem;
-  font-size: 2rem;
-  width: 100%;
-}
-.quote-fieldset div.quote-header {
-  font-size: 3.5rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-.quote-ul li div {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  margin: 2rem;
-}
-.quote-add :hover {
-  color: #059862 !important;
-}
-
-.quote-remove :hover {
-  color: #d52e3f !important;
-}
-
-.quote-add-container {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  padding: 2rem;
-}
-
-.center-container {
-  left: 50%;
-  top: 40%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform: translate(-50%, -50%);
 }
 
 .clock {
-  left: 50%;
-  top: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-.clock div {
   text-align: center;
 }
-.clock div span {
+.clock h1 {
   font-size: 20vmin;
-  font-weight: bold;
 }
 
 .greeting {
-  margin-top: 4rem;
-  left: 50%;
-  top: 60%;
-  width: 100%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-.greeting div {
   text-align: center;
 }
-.greeting div span {
-  font-size: 8vmin;
+.greeting span {
+  font-size: 9vmin;
   font-weight: bold;
 }
 
 .quote {
-  left: 50%;
-  bottom: 0;
-  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  transform: translate(-50%, -50%);
+  bottom: 2rem;
+  left: 0;
+  right: 0;
 }
 .quote div {
-  text-align: center;
+  width: 50vw;
 }
-.quote div p {
-  font-size: 3vmin;
-  font-style: italic;
+.quote p {
+  text-align: center;
+  font-size: 2.6vmin;
 }
 
-.todo {
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
 .todo button {
-  background-color: transparent;
   border: none;
+  background-color: transparent;
+}
+.todo button i {
+  font-size: 2vmax;
+}
+.todo button i {
   color: white;
 }
-.todo button:hover {
-  color: #d3d3d3;
-  cursor: pointer;
-}
-.todo i {
-  padding: 1rem;
-  font-size: 2rem;
-}
 
-.todo-menu {
-  display: none;
-  position: absolute;
-  top: -80vh;
-  right: 0;
-  width: 100vmin;
-  max-width: 40vmax;
-  height: 80vh;
-  margin-top: -1rem;
-  overflow: scroll;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-.focus-input, .focus {
-  left: 50%;
-  top: 80%;
-  width: 100%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.focus-input button i, .focus-input button, .focus-input span, .focus-input div input[type=text], .focus div span {
-  font-size: 4.2vmin;
-}
-
-.focus-input span, .focus-input div input[type=text], .focus-input div, .focus div {
+.focus {
+  margin-top: 3rem;
   text-align: center;
 }
+.focus span {
+  font-size: 5.3vmin;
+}
+.focus button {
+  margin-left: 1rem;
+  color: white;
+  border: none;
+  background-color: transparent;
+}
+.focus button i {
+  font-size: 2vmax;
+}
+.focus button:hover {
+  color: #d52e3f !important;
+}
 
-.focus div {
-  width: 100%;
-}
-.focus-today-header {
-  font-weight: bold;
-}
-
-.focus-input {
-  margin-top: 2rem;
-  top: 85%;
-}
-.focus-input div input[type=text] {
+.focus-input-container input[type=text] {
+  font-size: 4.3vmin;
+  text-align: center;
   background: none;
   border: none;
   border-bottom: 2px solid white;
   color: white;
 }
-.focus-input button {
-  background-color: transparent;
-  border: none;
-  color: white;
+
+.center-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
-.focus-input button:hover {
-  color: #d3d3d3;
-  cursor: pointer;
-}
-.focus-input button {
-  margin-left: 1rem;
-}
-.focus-input button:hover {
-  color: #d52e3f;
-}
+
 .fade-bg {
   transition: 1s background-image ease;
 }

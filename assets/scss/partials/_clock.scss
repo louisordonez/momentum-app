@@ -1,16 +1,9 @@
 @use './mixins' as *;
 
 .clock {
-  left: 50%;
-  top: 50%;
-  @include center-screen;
+  text-align: center;
 
-  div {
-    text-align: center;
-
-    span {
-      font-size: 20vmin;
-      font-weight: bold;
-    }
+  h1 {
+    font-size: 20vmin;
   }
 }

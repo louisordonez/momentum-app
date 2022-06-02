@@ -1,18 +1,10 @@
 @use './mixins' as *;
 
 .greeting {
-  margin-top: 4rem;
-  left: 50%;
-  top: 60%;
-  width: 100%;
-  @include center-screen;
+  text-align: center;
 
-  div {
-    text-align: center;
-
-    span {
-      font-size: 8vmin;
-      font-weight: bold;
-    }
+  span {
+    font-size: 9vmin;
+    font-weight: bold;
   }
 }

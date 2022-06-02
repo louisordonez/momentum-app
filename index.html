@@ -17,38 +17,31 @@
   </head>
   <body>
     <div class="main">
-      <div class="center-container">
-        <div>
-          <div class="clock">
-            <div>
-              <span data-clock>--:--</span>
-            </div>
-          </div>
-          <div class="greeting">
-            <div>
-              <span data-greeting></span>
-              <span data-name></span>
-              <span>.</span>
-            </div>
+      <div class="center-screen">
+        <div class="clock">
+          <h1 data-clock>--:--</h1>
+        </div>
+        <div class="greeting">
+          <div>
+            <span data-greeting></span>
+            <span data-name></span>
+            <span>.</span>
           </div>
         </div>
         <div class="focus">
           <div>
-            <span>What is your main focus for today?</span>
+            <span data-focus-today-header>What is your main focus for today?</span>
           </div>
-          <div>
-            <span class="focus-today-header hide" data-focus-today-header>TODAY</span>
-          </div>
-        </div>
-        <div class="focus-input">
-          <div>
-            <input type="text" />
-          </div>
-          <div>
-            <span class="hide" data-focus-input></span>
-            <button class="focus-remove-btn hide">
-              <i class="fa-solid fa-circle-xmark"></i>
-            </button>
+          <div class="focus-input-container">
+            <div>
+              <input type="text" />
+            </div>
+            <div>
+              <span class="hide" data-focus-text></span>
+              <button class="focus-remove-btn hide">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -57,35 +50,6 @@
           <button>
             <i class="fa-solid fa-gear"></i>
           </button>
-        </div>
-        <div>
-          <div class="settings-menu" data-settings-menu>
-            <div class="settings-menu-header">
-              <span>Settings</span>
-            </div>
-            <div class="settings-menu-form">
-              <fieldset class="name-fieldset">
-                <div>
-                  <input type="text" name="name" placeholder="Name" data-settings-menu-name-input />
-                </div>
-                <div>
-                  <button class="settings-submit-btn" data-settings-menu-submit>Save</button>
-                </div>
-              </fieldset>
-              <fieldset class="quote-fieldset">
-                <div class="quote-add-container">
-                  <input type="text" name="quote" placeholder="Quote" data-settings-menu-quote-input />
-                  <button class="quote-add" data-settings-menu-quote-add-button>
-                    <i class="fa-solid fa-circle-plus i-menu-style"></i>
-                  </button>
-                </div>
-                <div class="quote-header">
-                  <span>Quotes </span>
-                </div>
-                <ul class="quote-ul" data-quote-ul></ul>
-              </fieldset>
-            </div>
-          </div>
         </div>
       </div>
       <div class="todo">
@@ -99,7 +63,12 @@
         </div>
       </div>
       <div class="quote">
-        <div><p>“Random Quote”</p></div>
+        <div>
+          <p data-quote>
+            “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum accusamus a dolor et? Harum illum facilis
+            velit, ducimus sit sunt molestias cumque exercitationem laborum animi nisi, iusto ullam ut! Cupiditate.”
+          </p>
+        </div>
       </div>
     </div>
   </body>

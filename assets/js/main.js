@@ -22,7 +22,7 @@ const setClock = (time) => {
 
 const setGreeting = (time) => {
   const checkGreetingTime = (time) => {
-    if (time < '1200') {
+    if (time > '2359' && time < '1200') {
       // Until 11:59 AM
       return 'Good morning, '
     } else if (time > '1159' && time < '1800') {
@@ -39,7 +39,7 @@ const setGreeting = (time) => {
 
 const setBackground = (time) => {
   const checkBackgroundTime = (time) => {
-    if (time < '0530') {
+    if (time > '2359' && time < '0530') {
       // Until 05:29 AM
       return `url('./assets/img/bg-evening.png')`
     } else if (time > '0529' && time < '0630') {
@@ -75,11 +75,10 @@ const setTimeInterval = setInterval(() => {
 }, 1000)
 
 // Focus
-const focusQuestion = document.querySelector('div.focus span')
 const focusToday = document.querySelector('[data-focus-today-header]')
-const focusInput = document.querySelector('div.focus-input input[type=text')
-const focusText = document.querySelector('div.focus-input span')
-const focusRemoveButton = document.querySelector('div.focus-input button')
+const focusInput = document.querySelector('div.focus-input-container input[type=text')
+const focusText = document.querySelector('[data-focus-text]')
+const focusRemoveButton = document.querySelector('div.focus-input-container button')
 const focusLocalStorageKey = 'focus'
 
 focusInput.addEventListener('keypress', (e) => {
@@ -94,6 +93,8 @@ focusInput.addEventListener('keypress', (e) => {
 focusRemoveButton.addEventListener('click', () => {
   localStorage.removeItem(focusLocalStorageKey)
   focusElementsToggle()
+  focusToday.textContent = 'What is your main focus for today?'
+  focusToday.style.fontWeight = 'normal'
   focusInput.value = ''
 })
 
@@ -103,13 +104,13 @@ const getFocus = (itemKey) => {
   if (focusItem !== null) {
     focusElementsToggle()
     focusText.textContent = focusItem
+    focusToday.textContent = 'TODAY'
+    focusToday.style.fontWeight = 'bold'
   }
 }
 
 const focusElementsToggle = () => {
-  focusQuestion.classList.toggle('hide')
   focusInput.classList.toggle('hide')
-  focusToday.classList.toggle('hide')
   focusText.classList.toggle('hide')
   focusRemoveButton.classList.toggle('hide')
 }
@@ -127,70 +128,67 @@ settingsButton.addEventListener('click', () => showMenu(settingsMenu, settingsBu
 todoButton.addEventListener('click', () => showMenu(todoMenu, todoButton))
 
 const showMenu = (menu, button) => {
-  menu.classList.toggle('show')
-  button.classList.toggle('active-btn')
+  // menu.classList.toggle('show')
+  // button.classList.toggle('active-btn')
 
   const disableButton = (button) => {
     button === todoButton ? settingsButton.toggleAttribute('disabled') : todoButton.toggleAttribute('disabled')
   }
 
-  addAnimation(menu)
+  // addAnimation(menu)
   disableButton(button)
 }
 
 // Settings
-const nameInput = document.querySelector('[data-settings-menu-name-input]')
-const settingsSubmitButton = document.querySelector('[data-settings-menu-submit]')
-const nameText = document.querySelector('[data-name]')
-const nameLocalStorageKey = 'name'
+// const nameInput = document.querySelector('[data-settings-menu-name-input]')
+// const settingsSubmitButton = document.querySelector('[data-settings-menu-submit]')
+// const nameText = document.querySelector('[data-name]')
+// const nameLocalStorageKey = 'name'
 
-settingsSubmitButton.addEventListener('click', () => {
-  let nameInputValue = nameInput.value
+// settingsSubmitButton.addEventListener('click', () => {
+//   let nameInputValue = nameInput.value
 
-  nameInputValue === ''
-    ? alert(`Name cannot be empty.`)
-    : (localStorage.setItem(nameLocalStorageKey, nameInputValue), getName(nameInputValue))
-})
+//   nameInputValue === ''
+//     ? alert(`Name cannot be empty.`)
+//     : (localStorage.setItem(nameLocalStorageKey, nameInputValue), getName(nameInputValue))
+// })
 
-const getName = (item) => {
-  let nameItem = localStorage.getItem(nameLocalStorageKey, item)
-  nameInput.value = nameItem
+// const getName = (item) => {
+//   let nameItem = localStorage.getItem(nameLocalStorageKey, item)
+//   nameInput.value = nameItem
 
-  nameItem !== null ? (nameText.textContent = nameItem) : (nameText.textContent = 'User')
-}
+//   nameItem !== null ? (nameText.textContent = nameItem) : (nameText.textContent = 'User')
+// }
 
-getName(nameLocalStorageKey)
+// getName(nameLocalStorageKey)
 
-const quoteUl = document.querySelector('[data-quote-ul]')
-const quoteLi = document.querySelector('[data-quote-li]')
-const quoteInput = document.querySelector('[data-settings-menu-quote-input]')
-const quoteAddButton = document.querySelector('[data-settings-menu-quote-add-button]')
+// const quoteUl = document.querySelector('[data-quote-ul]')
+// const quoteLi = document.querySelector('[data-quote-li]')
+// const quoteInput = document.querySelector('[data-settings-menu-quote-input]')
+// const quoteAddButton = document.querySelector('[data-settings-menu-quote-add-button]')
 
-quoteAddButton.addEventListener('click', () => newQuote())
+// quoteAddButton.addEventListener('click', () => newQuote())
 
-// const quoteRemoveButton = document.querySelector('[data-settings-menu-quote-remove-button]')
-// quoteRemoveButton.addEventListener('click', () => removeQuote(quoteLi))
+// const newQuote = () => {
+//   const liQuote = document.createElement('li')
+//   const divQuote = document.createElement('div')
+//   const spanQuote = document.createElement('span')
+//   const buttonQuote = document.createElement('button')
+//   const iQuote = document.createElement('i')
+//   let spanValue = document.createTextNode('Test')
 
-const newQuote = () => {
-  const liQuote = document.createElement('li')
-  const divQuote = document.createElement('div')
-  const spanQuote = document.createElement('span')
-  const buttonQuote = document.createElement('button')
-  const iQuote = document.createElement('i')
-  let spanValue = document.createTextNode('Tesasdasdasdasdasdasdasdasdasdt')
+//   buttonQuote.classList.add('quote-remove')
+//   iQuote.classList.add('fa-solid', 'fa-circle-minus', 'i-menu-style')
 
-  buttonQuote.classList.add('quote-remove')
-  iQuote.classList.add('fa-solid', 'fa-circle-minus', 'i-menu-style')
+//   quoteUl.appendChild(liQuote)
+//   liQuote.appendChild(divQuote)
+//   divQuote.appendChild(spanQuote)
+//   spanQuote.append(buttonQuote)
+//   buttonQuote.append(iQuote)
 
-  quoteUl.appendChild(liQuote)
-  liQuote.appendChild(divQuote)
-  divQuote.appendChild(spanQuote)
-  spanQuote.append(buttonQuote)
-  buttonQuote.append(iQuote)
+//   spanQuote.appendChild(spanValue)
+// }
 
-  spanQuote.appendChild(spanValue)
-}
-
-const removeQuote = (element) => {
-  element.remove()
-}
+// const removeQuote = (element) => {
+//   element.remove()
+// }

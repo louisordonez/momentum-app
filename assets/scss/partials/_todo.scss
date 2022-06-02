@@ -2,27 +2,10 @@
 @use './mixins' as *;
 
 .todo {
-  right: 0;
-  bottom: 0;
-  @include center-screen;
-  @include button-style;
-
-  i {
-    padding: 1rem;
-    font-size: 2rem;
+  button {
+    @include i-button-style;
+    i {
+      color: white;
+    }
   }
-}
-
-.todo-menu {
-  display: none;
-  position: absolute;
-  top: -80vh;
-  right: 0;
-  width: 100vmin;
-  max-width: 40vmax;
-  height: 80vh;
-  margin-top: -1rem;
-  overflow: scroll;
-  background-color: white;
-  @include menu-style;
 }

@@ -1,70 +1,32 @@
 @use './mixins' as *;
 @use './variables' as *;
 
-%focus-position {
-  left: 50%;
-  top: 80%;
-  width: 100%;
-  @include center-screen;
-}
-
-%focus-text-size {
-  font-size: 4.2vmin;
-}
-
-%text-align-center {
-  text-align: center;
-}
-
 .focus {
-  @extend %focus-position;
-
-  div {
-    @extend %text-align-center;
-    width: 100%;
-
-    span {
-      @extend %focus-text-size;
-    }
-  }
-}
-
-.focus-today-header {
-  font-weight: bold;
-}
-
-.focus-input {
-  @extend %focus-position;
-  margin-top: 2rem;
-  top: 85%;
-
-  div {
-    @extend %text-align-center;
-
-    input[type='text'] {
-      @include input-text(none, none, 2px solid white, white);
-      @extend %focus-text-size;
-      @extend %text-align-center;
-    }
-  }
+  margin-top: 3rem;
+  text-align: center;
 
   span {
-    @extend %focus-text-size;
-    @extend %text-align-center;
+    font-size: 5.3vmin;
   }
 
-  @include button-style;
-
   button {
-    @extend %focus-text-size;
     margin-left: 1rem;
+    color: white;
+    @include i-button-style;
 
     &:hover {
-      color: $red;
+      color: $red !important;
     }
+  }
+}
 
-    i {
-      @extend %focus-text-size;
-    }
+.focus-input-container {
+  input[type='text'] {
+    font-size: 4.3vmin;
+    text-align: center;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
   }
 }
