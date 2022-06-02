@@ -371,7 +371,7 @@ li {
   align-items: center;
   justify-items: center;
   justify-content: center;
-  width: 100vmin;
+  width: 100%;
 }
 
 .fade-bg {
