@@ -53,15 +53,35 @@
             <i class="fa-solid fa-gear"></i>
           </button>
         </div>
-        <div class="settings-menu show" data-settings-menu>
+        <div class="settings-menu" data-settings-menu>
           <div>
             <h1>Settings</h1>
           </div>
           <div class="name-input-container">
-            <input type="text" placeholder="Name" data-settings-menu-name-input />
+            <div>
+              <input type="text" placeholder="Name" data-settings-menu-name-input />
+            </div>
             <div>
               <button data-settings-menu-name-submit>Submit</button>
             </div>
+          </div>
+          <div class="quote-input-container">
+            <!-- <div id="myDIV" class="header">
+              <div>
+                <h2>Quotes</h2>
+              </div>
+              <input type="text" id="myInput" placeholder="Quote" style="width: 83%" />
+              <span id="spanaddBtn"><i class="fa-solid fa-circle-plus"></i></span>
+            </div>
+
+            <ul id="myUL">
+              <li>Hit the gym</li>
+              <li class="checked">Pay bills</li>
+              <li>Meet George</li>
+              <li>Buy eggs</li>
+              <li>Read a book</li>
+              <li>Organize office</li>
+            </ul> -->
           </div>
         </div>
       </div>
@@ -72,7 +92,30 @@
           </button>
         </div>
         <div>
-          <div class="todo-menu" data-todo-menu>Todo</div>
+          <div class="todo-menu" data-todo-menu>
+            <div>
+              <h1>Todo</h1>
+            </div>
+            <div class="todo-input-container">
+              <div id="myDIV" class="header">
+                <input type="text" id="myInput" placeholder="Item" data-todo-input />
+                <span id="addBtn" data-todo-add><i class="fa-solid fa-circle-plus"></i></span>
+              </div>
+              <div>
+                <h2>Items</h2>
+              </div>
+              <div>
+                <ul class="todo-list" id="myUL" data-todo-ul>
+                  <li data-todo-item>Hit the gym</li>
+                  <li class="checked" data-todo-item>Pay bills</li>
+                  <li data-todo-item>Meet George</li>
+                  <li data-todo-item>Buy eggs</li>
+                  <li data-todo-item>Read a book</li>
+                  <li data-todo-item>Organize office</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="quote">

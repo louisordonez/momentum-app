@@ -22,10 +22,6 @@ body {
   width: 100vw;
 }
 
-a {
-  color: white;
-}
-
 input,
 textarea,
 select,
@@ -40,4 +36,8 @@ input:focus {
 
 button {
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
 }

@@ -139,7 +139,7 @@ const showMenu = (menu, button) => {
   disableButton(button)
 }
 
-// Settings
+// Settings - Name
 const nameInput = document.querySelector('[data-settings-menu-name-input]')
 const nameSubmit = document.querySelector('[data-settings-menu-name-submit]')
 const nameText = document.querySelector('[data-name]')
@@ -162,33 +162,45 @@ const getName = (item) => {
 
 getName(nameLocalStorageKey)
 
-// const quoteUl = document.querySelector('[data-quote-ul]')
-// const quoteLi = document.querySelector('[data-quote-li]')
-// const quoteInput = document.querySelector('[data-settings-menu-quote-input]')
-// const quoteAddButton = document.querySelector('[data-settings-menu-quote-add-button]')
+// Settings - Todo
+// const liItems = document.querySelectorAll('[data-todo-item]')
+const todoAddButton = document.querySelector('[data-todo-add]')
 
-// quoteAddButton.addEventListener('click', () => newQuote())
+todoAddButton.addEventListener('click', () => newItem())
 
-// const newQuote = () => {
-//   const liQuote = document.createElement('li')
-//   const divQuote = document.createElement('div')
-//   const spanQuote = document.createElement('span')
-//   const buttonQuote = document.createElement('button')
-//   const iQuote = document.createElement('i')
-//   let spanValue = document.createTextNode('Test')
-
-//   buttonQuote.classList.add('quote-remove')
-//   iQuote.classList.add('fa-solid', 'fa-circle-minus', 'i-menu-style')
-
-//   quoteUl.appendChild(liQuote)
-//   liQuote.appendChild(divQuote)
-//   divQuote.appendChild(spanQuote)
-//   spanQuote.append(buttonQuote)
-//   buttonQuote.append(iQuote)
-
-//   spanQuote.appendChild(spanValue)
+// for (let i = 0; i < liItems.length; i++) {
+//   var span = document.createElement('SPAN')
+//   var txt = document.createTextNode('\u00D7')
+//   span.className = 'close'
+//   span.appendChild(txt)
+//   liItems[i].appendChild(span)
 // }
 
-// const removeQuote = (element) => {
-//   element.remove()
-// }
+const newItem = () => {
+  const ulTodo = document.querySelector('[data-todo-ul]')
+  const inputTodo = document.querySelector('[data-todo-input]')
+  let inputTodoValue = inputTodo.value
+  const inputTextNode = document.createTextNode(inputTodoValue)
+  const liCreate = document.createElement('li')
+  let iClose = document.createElement('i')
+
+  liCreate.setAttribute('data-todo-item', '')
+
+  iClose.classList.add('fa-solid')
+  iClose.classList.add('fa-circle-minus')
+  iClose.classList.add('close')
+
+  liCreate.appendChild(iClose)
+  liCreate.appendChild(inputTextNode)
+
+  inputTodoValue === '' ? alert('Item cannot be empty') : ulTodo.appendChild(liCreate)
+
+  inputTodo.value = ''
+
+  for (let i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      let div = this.parentElement
+      div.style.display = 'none'
+    }
+  }
+}

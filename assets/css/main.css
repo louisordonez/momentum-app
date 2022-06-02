@@ -20,10 +20,6 @@ body {
   width: 100vw;
 }
 
-a {
-  color: white;
-}
-
 input,
 textarea,
 select,
@@ -38,6 +34,10 @@ input:focus {
 
 button {
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .settings button {
@@ -57,41 +57,37 @@ button {
 
 .settings-menu {
   box-shadow: rgba(0, 0, 0, 0.19) 0vmin 1vmin 2vmin, rgba(0, 0, 0, 0.23) 0vmin 0.6vmin 0.6vmin;
+  display: none;
+  overflow-y: scroll;
   margin-left: 2vmin;
-  width: 60vmin;
+  width: 95vmin;
   background-color: white;
   border-radius: 1.5vmin;
-  border-top-left-radius: 2vmin;
-  border-top-right-radius: 2vmin;
-}
-.settings-menu > div:nth-child(1) {
-  background-color: #007bff;
-  border-top-left-radius: 1.5vmin;
-  border-top-right-radius: 1.5vmin;
 }
 .settings-menu h1 {
+  background-color: #007bff;
   text-align: center;
   font-size: 4vmin;
   padding: 1vmin;
 }
 
-.name-input-container {
+.name-input-container, .quote-input-container {
   padding: 2vmin;
   text-align: center;
 }
-.name-input-container input[type=text] {
+.name-input-container input[type=text], .quote-input-container input[type=text] {
   padding: 1vmin;
-  font-size: 3vmin;
+  font-size: 4vmin;
   color: black;
   background: none;
   border: none;
   border-bottom: 0.5vmin solid black;
   width: 90%;
 }
-.name-input-container div {
+.name-input-container div, .quote-input-container div {
   margin-top: 2vmin;
 }
-.name-input-container div button {
+.name-input-container div button, .quote-input-container div button {
   font-size: 2vmin;
   background-color: #28a745;
   color: white !important;
@@ -101,8 +97,15 @@ button {
   border-radius: 0.4vmin;
   width: 90%;
 }
-.name-input-container div button:hover {
+.name-input-container div button:hover, .quote-input-container div button:hover {
   background-color: #218838;
+}
+
+.quote-input-container h2 {
+  font-size: 4vmin;
+}
+.quote-input-container span {
+  cursor: pointer;
 }
 
 .clock {
@@ -138,7 +141,6 @@ button {
 }
 
 .todo {
-  z-index: 1;
   position: absolute;
   top: 0;
   right: 0;
@@ -155,19 +157,114 @@ button {
   font-size: 2vmax;
 }
 .todo button {
+  position: absolute;
+  top: 0;
+  right: 0;
   margin: 2vmin;
 }
 
 .todo-menu {
-  display: none;
+  box-shadow: rgba(0, 0, 0, 0.19) 0vmin 1vmin 2vmin, rgba(0, 0, 0, 0.23) 0vmin 0.6vmin 0.6vmin;
+  display: block;
+  overflow: scroll;
+  height: 60vmin;
+  width: 95vmin;
+  margin-top: 7.5vmin;
+  margin-right: 2vmin;
+  margin-left: 2vmin;
+  background-color: white;
+  border-radius: 1.5vmin;
+}
+.todo-menu h1 {
+  background-color: #007bff;
+  text-align: center;
+  font-size: 4vmin;
+  padding: 1vmin;
+}
+
+.todo-input-container {
+  padding: 2vmin;
+  text-align: center;
+}
+.todo-input-container input[type=text] {
+  padding: 1vmin;
+  font-size: 4vmin;
+  color: black;
+  background: none;
+  border: none;
+  border-bottom: 0.5vmin solid black;
+  width: 90%;
+}
+.todo-input-container div {
+  margin-top: 2vmin;
+}
+.todo-input-container div button {
+  font-size: 2vmin;
+  background-color: #28a745;
+  color: white !important;
+  padding: 1.4vmin 2vmin;
+  margin: 0.8vmin 0;
+  border: none;
+  border-radius: 0.4vmin;
+  width: 90%;
+}
+.todo-input-container div button:hover {
+  background-color: #218838;
+}
+.todo-input-container h2 {
+  color: black;
+  font-size: 4vmin;
+}
+.todo-input-container span {
+  color: #28a745;
+  cursor: pointer;
+}
+.todo-input-container span:hover {
+  color: #218838;
+}
+.todo-input-container span i {
+  font-size: 4vmin;
+}
+
+.todo-list {
+  font-size: 4vmin;
+}
+.todo-list ul {
+  color: black;
+}
+.todo-list li {
+  color: black;
+  text-align: left;
+  margin-left: 3vmin;
+  margin-right: 3vmin;
+  padding: 1vmin;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.todo-list li:nth-child(odd) {
+  background: #f9f9f9 !important;
+}
+.todo-list li:hover {
+  background: #ddd;
+}
+.todo-list li.checked {
+  background: #888;
+  text-decoration: line-through;
+}
+
+.close {
+  color: black !important;
+  font-size: 2vmin;
+  margin-right: 1vmin;
+}
+
+.close:hover {
+  color: #dc3545 !important;
 }
 
 .focus {
   margin-top: 3vmin;
   text-align: center;
-}
-.focus span {
-  font-size: 5.3vmin;
 }
 .focus button {
   color: white;
@@ -179,6 +276,9 @@ button {
 }
 .focus i {
   font-size: 2vmax;
+}
+.focus span {
+  font-size: 5.3vmin;
 }
 .focus button {
   margin-left: 1vmin;

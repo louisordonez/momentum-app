@@ -10,25 +10,21 @@
 }
 
 .settings-menu {
-  > div:nth-child(1) {
-    background-color: $blue;
-    border-top-left-radius: 1.5vmin;
-    border-top-right-radius: 1.5vmin;
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 4vmin;
-    padding: 1vmin;
-  }
-
   @include menu-box-shadow;
+
+  display: none;
+  overflow-y: scroll;
   margin-left: 2vmin;
-  width: 60vmin;
+  width: 95vmin;
   background-color: white;
   border-radius: 1.5vmin;
-  border-top-left-radius: 2vmin;
-  border-top-right-radius: 2vmin;
+
+  h1 {
+    background-color: $blue;
+    text-align: center;
+    font-size: $text-font-size;
+    padding: 1vmin;
+  }
 }
 
 .name-input-container {
@@ -37,7 +33,7 @@
 
   input[type='text'] {
     padding: 1vmin;
-    font-size: 3vmin;
+    font-size: $text-font-size;
     color: black;
     background: none;
     border: none;
@@ -46,8 +42,20 @@
   }
 
   div {
-    margin-top: 2vmin;
-
     @include menu-submit-btn;
+
+    margin-top: 2vmin;
+  }
+}
+
+.quote-input-container {
+  @extend .name-input-container;
+
+  h2 {
+    font-size: $text-font-size;
+  }
+
+  span {
+    cursor: pointer;
   }
 }

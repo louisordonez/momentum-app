@@ -2,18 +2,130 @@
 @use './mixins' as *;
 
 .todo {
-  z-index: 1;
+  @include i-button-style;
+
   position: absolute;
   top: 0;
   right: 0;
 
-  @include i-button-style;
-
   button {
+    position: absolute;
+    top: 0;
+    right: 0;
     margin: 2vmin;
   }
 }
 
 .todo-menu {
-  display: none;
+  @include menu-box-shadow;
+
+  display: block;
+  overflow: scroll;
+  height: 60vmin;
+  width: 95vmin;
+  margin-top: 7.5vmin;
+  margin-right: 2vmin;
+  margin-left: 2vmin;
+  background-color: white;
+  border-radius: 1.5vmin;
+
+  h1 {
+    background-color: $blue;
+    text-align: center;
+    font-size: $text-font-size;
+    padding: 1vmin;
+  }
+}
+
+.todo-input-container {
+  padding: 2vmin;
+  text-align: center;
+
+  input[type='text'] {
+    padding: 1vmin;
+    font-size: $text-font-size;
+    color: black;
+    background: none;
+    border: none;
+    border-bottom: 0.5vmin solid black;
+    width: 90%;
+  }
+
+  div {
+    @include menu-submit-btn;
+
+    margin-top: 2vmin;
+  }
+
+  h2 {
+    color: black;
+    font-size: $text-font-size;
+  }
+
+  span {
+    color: $green;
+    cursor: pointer;
+
+    &:hover {
+      color: $green-hover;
+    }
+
+    i {
+      font-size: $text-font-size;
+    }
+  }
+}
+
+.todo-list {
+  font-size: $text-font-size;
+
+  ul {
+    color: black;
+  }
+
+  li {
+    color: black;
+    text-align: left;
+    margin-left: 3vmin;
+    margin-right: 3vmin;
+    padding: 1vmin;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:nth-child(odd) {
+      background: #f9f9f9 !important;
+    }
+
+    &:hover {
+      background: #ddd;
+    }
+
+    &.checked {
+      background: #888;
+      text-decoration: line-through;
+    }
+
+    // &.checked::before {
+    //   color: aqua;
+    //   content: '';
+    //   position: absolute;
+    //   border-color: blueviolet;
+    //   border-style: solid;
+    //   border-width: 0 2px 2px 0;
+    //   transform: rotate(45deg);
+    //   height: 15px;
+    //   width: 7px;
+    //   margin-left: 100px;
+    // }
+  }
+}
+
+.close {
+  color: black !important;
+  font-size: 2vmin;
+  margin-right: 1vmin;
+}
+
+.close:hover {
+  color: $red !important;
 }
