@@ -139,7 +139,7 @@ const showMenu = (menu, button) => {
   disableButton(button)
 }
 
-// Settings - Name
+// Name
 const nameInput = document.querySelector('[data-settings-menu-name-input]')
 const nameSubmit = document.querySelector('[data-settings-menu-name-submit]')
 const nameText = document.querySelector('[data-name]')
@@ -162,42 +162,52 @@ const getName = (item) => {
 
 getName(nameLocalStorageKey)
 
-// Settings - Todo
+// Quotes & Todo
 const todoAddButton = document.querySelector('[data-todo-add]')
 const todoList = document.querySelector('[data-todo-ul]')
 const todoItems = document.querySelectorAll('[data-todo-item]')
+const todoInput = document.querySelector('[data-todo-input]')
+const quoteAddButton = document.querySelector('[data-quote-add]')
+const quoteList = document.querySelector('[data-quote-ul]')
+const quoteItems = document.querySelectorAll('[data-quote-item]')
 const deleteButtons = document.getElementsByClassName('delete')
 
-todoAddButton.addEventListener('click', () => newItem())
+const quoteInput = document.querySelector('[data-quote-input]')
+
+const addListItem = (ul, button, input) => {
+  button.addEventListener('click', () => newItem(ul, button, input))
+}
 
 todoList.addEventListener('click', (ev) => (ev.target.tagName === 'LI' ? ev.target.classList.toggle('done') : false))
 
-for (let i = 0; i < todoItems.length; i++) {
-  const deleteButton = document.createElement('i')
-  let itemValue = todoItems[i].textContent
-  let itemStoredTextContent = document.createTextNode(itemValue)
+const addDeleteButton = (element) => {
+  for (let i = 0; i < element.length; i++) {
+    const deleteButton = document.createElement('i')
+    let itemValue = element[i].textContent
+    let itemStoredTextContent = document.createTextNode(itemValue)
 
-  deleteButton.classList.add('fa-solid')
-  deleteButton.classList.add('fa-circle-minus')
-  deleteButton.classList.add('delete')
+    deleteButton.classList.add('fa-solid')
+    deleteButton.classList.add('fa-circle-minus')
+    deleteButton.classList.add('delete')
 
-  todoItems[i].textContent = ''
-  todoItems[i].appendChild(deleteButton)
-  todoItems[i].appendChild(itemStoredTextContent)
-}
-
-for (let i = 0; i < deleteButtons.length; i++) {
-  deleteButtons[i].onclick = function () {
-    let div = this.parentElement
-    div.style.display = 'none'
+    element[i].textContent = ''
+    element[i].appendChild(deleteButton)
+    element[i].appendChild(itemStoredTextContent)
   }
 }
 
-const newItem = () => {
-  const ulTodo = document.querySelector('[data-todo-ul]')
-  const inputTodo = document.querySelector('[data-todo-input]')
-  let inputTodoValue = inputTodo.value
-  const inputTextNode = document.createTextNode(inputTodoValue)
+function deleteItems(element) {
+  for (let i = 0; i < element.length; i++) {
+    element[i].onclick = function () {
+      let div = this.parentElement
+      div.style.display = 'none'
+    }
+  }
+}
+
+const newItem = (ul, button, input) => {
+  let inputValue = input.value
+  const inputTextNode = document.createTextNode(inputValue)
   const liCreate = document.createElement('li')
   const deleteButton = document.createElement('i')
 
@@ -205,14 +215,14 @@ const newItem = () => {
   deleteButton.classList.add('fa-circle-minus')
   deleteButton.classList.add('delete')
 
-  liCreate.setAttribute('data-todo-item', '')
+  button === todoAddButton ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
 
   liCreate.appendChild(deleteButton)
   liCreate.appendChild(inputTextNode)
 
-  inputTodoValue === '' ? alert('Item cannot be empty') : ulTodo.appendChild(liCreate)
+  inputValue === '' ? alert('Input cannot be empty') : ul.appendChild(liCreate)
 
-  inputTodo.value = ''
+  input.value = ''
 
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].onclick = function () {
@@ -221,3 +231,9 @@ const newItem = () => {
     }
   }
 }
+
+addListItem(quoteList, quoteAddButton, quoteInput)
+addListItem(todoList, todoAddButton, todoInput)
+addDeleteButton(quoteItems)
+addDeleteButton(todoItems)
+deleteItems(deleteButtons)

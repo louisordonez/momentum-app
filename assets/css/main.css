@@ -170,6 +170,9 @@ li {
   cursor: pointer;
   cursor: auto;
 }
+.quote-list li i {
+  cursor: pointer;
+}
 
 .clock {
   text-align: center;

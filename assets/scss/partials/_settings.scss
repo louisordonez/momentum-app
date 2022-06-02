@@ -63,5 +63,9 @@
   li {
     @include menu-li-stlye;
     cursor: auto;
+
+    i {
+      cursor: pointer;
+    }
   }
 }
