@@ -7,6 +7,7 @@
   text-decoration: none;
   box-sizing: border-box;
   font-size: 62.5%;
+  animation: fadeAnimation 0.3s forwards;
 }
 
 html,
@@ -44,4 +45,13 @@ ul {
 
 li {
   word-break: break-all;
+}
+
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

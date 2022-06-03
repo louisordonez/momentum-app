@@ -16,19 +16,6 @@
   transition: 1s background-image ease;
 }
 
-.fade-animation {
-  animation: showAnimation 0.3s forwards;
-}
-
-@keyframes showAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .show {
   display: block;
 }

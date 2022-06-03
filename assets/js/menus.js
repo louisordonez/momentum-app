@@ -1,4 +1,4 @@
-import { addBackgroundTransition, addAnimation } from './main.js'
+import { addBackgroundTransition } from './main.js'
 
 const settingsMenu = document.querySelector('[data-settings-menu]')
 const settingsButton = document.querySelector('div.settings button')
@@ -20,6 +20,4 @@ const showMenu = (menu, button) => {
       }
     }
   })
-
-  addAnimation(menu)
 }

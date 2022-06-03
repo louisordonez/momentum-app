@@ -5,6 +5,8 @@
   text-decoration: none;
   box-sizing: border-box;
   font-size: 62.5%;
+  -webkit-animation: fadeAnimation 0.3s forwards;
+          animation: fadeAnimation 0.3s forwards;
 }
 
 html,
@@ -44,6 +46,23 @@ li {
   word-break: break-all;
 }
 
+@-webkit-keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .settings button {
   color: #fff;
   border: none;
@@ -397,28 +416,6 @@ li {
   transition: 1s background-image ease;
 }
 
-.fade-animation {
-  -webkit-animation: showAnimation 0.3s forwards;
-          animation: showAnimation 0.3s forwards;
-}
-
-@-webkit-keyframes showAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes showAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .show {
   display: block;
 }
