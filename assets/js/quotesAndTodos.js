@@ -53,28 +53,55 @@ const newItem = (ul, input, array) => {
   const inputTextNode = document.createTextNode(inputValue)
   const liCreate = document.createElement('li')
   const removeButton = document.createElement('i')
+  const todoItems = document.querySelectorAll('[data-todo-item]')
 
-  removeButton.classList.add('fa-solid')
-  ul === todoList ? removeButton.classList.add('fa-circle-check') : removeButton.classList.add('fa-circle-minus')
-  removeButton.classList.add('remove')
-  ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
-  liCreate.appendChild(removeButton)
-  liCreate.appendChild(inputTextNode)
+  const checkIfExisting = (list, text) => {
+    const continueAdd = () => {
+      removeButton.classList.add('fa-solid')
+      ul === todoList ? removeButton.classList.add('fa-circle-check') : removeButton.classList.add('fa-circle-minus')
+      removeButton.classList.add('remove')
+      ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
+      liCreate.appendChild(removeButton)
+      liCreate.appendChild(inputTextNode)
 
-  if (inputValue === '') {
-    alert('Field cannot be empty.')
-  } else {
-    ul.appendChild(liCreate)
-    array.push(inputValue)
+      if (inputValue === '') {
+        alert('Field cannot be empty.')
+      } else {
+        ul.appendChild(liCreate)
+        array.push(inputValue)
 
-    ul === todoList
-      ? localStorage.setItem('items', JSON.stringify(array))
-      : localStorage.setItem('quotes', JSON.stringify(array))
+        ul === todoList
+          ? localStorage.setItem('items', JSON.stringify(array))
+          : localStorage.setItem('quotes', JSON.stringify(array))
+      }
+
+      input.value = ''
+
+      ul === todoList ? removeItem(todoRemove) : removeItem(quoteRemove)
+    }
+
+    if (list.length != 0) {
+      for (let i = 0; i < list.length; i++) {
+        let listText = list[i].textContent
+        let listTextUpper = listText.toUpperCase()
+        let listTextReplace = listTextUpper.replaceAll(' ', '')
+        let inputText = text
+        let inputTextUpper = inputText.toUpperCase()
+        let inputTextReplace = inputTextUpper.replaceAll(' ', '')
+
+        if (listTextReplace == inputTextReplace) {
+          alert('This item already exists.')
+          break
+        } else {
+          continueAdd()
+        }
+      }
+    } else {
+      continueAdd()
+    }
   }
 
-  input.value = ''
-
-  ul === todoList ? removeItem(todoRemove) : removeItem(quoteRemove)
+  checkIfExisting(todoItems, inputValue)
 }
 
 const removeFromList = (arr, i) => {
