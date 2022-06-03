@@ -58,9 +58,7 @@ const setBackground = (time) => {
       return `url('./assets/img/bg-evening.png')`
     }
   }
-
   addBackgroundTransition(body)
-
   body.style.backgroundImage = checkBackgroundTime(time)
 }
 

@@ -32,7 +32,6 @@ const addRemoveButton = (element) => {
     removeButton.classList.add('fa-solid')
     ul === todoList ? removeButton.classList.add('fa-circle-check') : removeButton.classList.add('fa-circle-minus')
     removeButton.classList.add('remove')
-
     element[i].textContent = ''
     element[i].appendChild(removeButton)
     element[i].appendChild(itemStoredTextContent)
@@ -40,12 +39,27 @@ const addRemoveButton = (element) => {
 }
 
 function removeItem(element) {
+  let key
+  element === todoRemove ? (key = 'todos') : (key = 'quotes')
   for (let i = 0; i < element.length; i++) {
     element[i].onclick = function () {
       let div = this.parentElement
+      let text = div.textContent
+      console.log(text)
+      removeFromList(key, text)
       div.style.display = 'none'
     }
   }
+}
+
+const removeFromList = (key, value) => {
+  let listArray = JSON.parse(localStorage.getItem(key))
+  let itemIndex = listArray.indexOf(value)
+
+  listArray.splice(itemIndex, 1)
+  key === 'todos'
+    ? localStorage.setItem('todos', JSON.stringify(listArray))
+    : localStorage.setItem('quotes', JSON.stringify(listArray))
 }
 
 const newItem = (ul, input, array) => {
@@ -60,31 +74,7 @@ const newItem = (ul, input, array) => {
   ul === todoList ? (items = todoItems) : (items = quoteItems)
 
   const checkIfExisting = (list, text) => {
-    const continueAdd = () => {
-      removeButton.classList.add('fa-solid')
-      ul === todoList ? removeButton.classList.add('fa-circle-check') : removeButton.classList.add('fa-circle-minus')
-      removeButton.classList.add('remove')
-      ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
-      liCreate.appendChild(removeButton)
-      liCreate.appendChild(inputTextNode)
-
-      if (inputValue === '') {
-        alert('Field cannot be empty.')
-      } else {
-        ul.appendChild(liCreate)
-        array.push(inputValue)
-
-        ul === todoList
-          ? localStorage.setItem('items', JSON.stringify(array))
-          : localStorage.setItem('quotes', JSON.stringify(array))
-      }
-
-      input.value = ''
-
-      ul === todoList ? removeItem(todoRemove) : removeItem(quoteRemove)
-    }
-
-    if (list.length != 0) {
+    if (list.length !== 0) {
       for (let i = 0; i < list.length; i++) {
         let listText = list[i].textContent
         let listTextUpper = listText.toUpperCase()
@@ -92,37 +82,46 @@ const newItem = (ul, input, array) => {
         let inputText = text
         let inputTextUpper = inputText.toUpperCase()
         let inputTextReplace = inputTextUpper.replaceAll(' ', '')
+
         if (listTextReplace == inputTextReplace) {
           alert('This item already exists.')
-          break
-        } else {
-          continueAdd()
+          return false
         }
       }
-    } else {
-      continueAdd()
     }
+    removeButton.classList.add('fa-solid')
+    ul === todoList ? removeButton.classList.add('fa-circle-check') : removeButton.classList.add('fa-circle-minus')
+    removeButton.classList.add('remove')
+    ul === todoList ? liCreate.setAttribute('data-todo-item', '') : liCreate.setAttribute('data-quote-item', '')
+    liCreate.appendChild(removeButton)
+    liCreate.appendChild(inputTextNode)
+
+    if (inputValue === '') {
+      alert('Field cannot be empty.')
+    } else {
+      ul.appendChild(liCreate)
+      array.push(inputValue)
+      ul === todoList
+        ? localStorage.setItem('todos', JSON.stringify(array))
+        : localStorage.setItem('quotes', JSON.stringify(array))
+    }
+    input.value = ''
+    ul === todoList ? removeItem(todoRemove) : removeItem(quoteRemove)
   }
-
   checkIfExisting(items, inputValue)
-}
-
-const removeFromList = (arr, i) => {
-  let index = array.indexOf(i)
-  arr.splice(index, 1)
-  console.log(arr)
 }
 
 const parseArray = (ul) => {
   let itemsArray
 
-  ul === todoList ? (itemsArray = localStorage.getItem('items')) : (itemsArray = localStorage.getItem('quotes'))
+  ul === todoList ? (itemsArray = localStorage.getItem('todos')) : (itemsArray = localStorage.getItem('quotes'))
   itemsArray = JSON.parse(itemsArray)
 
   if (itemsArray !== null) {
     return itemsArray
   } else {
     let emptyArr = []
+
     return emptyArr
   }
 }
@@ -149,6 +148,7 @@ const showListItems = (ul, array) => {
 const showRandomQuote = (array) => {
   if (array.length !== 0) {
     let arrayIndex = Math.floor(Math.random() * array.length)
+
     quoteText.classList.toggle('quote-fade-animation')
     quoteText.textContent = array[arrayIndex]
   } else {
