@@ -40,12 +40,13 @@ const addRemoveButton = (element) => {
 
 function removeItem(element) {
   let key
+
   element === todoRemove ? (key = 'todos') : (key = 'quotes')
   for (let i = 0; i < element.length; i++) {
     element[i].onclick = function () {
       let div = this.parentElement
       let text = div.textContent
-      console.log(text)
+
       removeFromList(key, text)
       div.style.display = 'none'
     }
@@ -108,6 +109,7 @@ const newItem = (ul, input, array) => {
     input.value = ''
     ul === todoList ? removeItem(todoRemove) : removeItem(quoteRemove)
   }
+
   checkIfExisting(items, inputValue)
 }
 

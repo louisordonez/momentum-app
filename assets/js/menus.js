@@ -12,7 +12,6 @@ todoButton.addEventListener('click', () => showMenu(todoMenu, todoButton))
 const showMenu = (menu, button) => {
   menu.classList.toggle('show')
   button.classList.toggle('active-btn')
-
   document.addEventListener('mouseup', function (e) {
     if (menu.classList.contains('show')) {
       if (!menu.contains(e.target)) {

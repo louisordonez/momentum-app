@@ -18,7 +18,6 @@ nameSubmit.addEventListener('click', () => {
 const getName = (item) => {
   let nameItem = localStorage.getItem(nameLocalStorageKey, item)
   nameInput.value = nameItem
-
   nameItem !== null ? (nameText.textContent = `${nameItem}.`) : (nameText.textContent = 'User.')
 }
 
