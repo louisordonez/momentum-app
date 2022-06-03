@@ -1,4 +1,4 @@
-import { addBackgroundTransition, addAnimation } from './fade.js'
+import { addBackgroundTransition, addAnimation } from './main.js'
 
 const clockElement = document.querySelector('[data-clock]')
 const greetingElement = document.querySelector('[data-greeting]')

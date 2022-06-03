@@ -1,4 +1,4 @@
-import { addBackgroundTransition, addAnimation } from './fade.js'
+import { addBackgroundTransition, addAnimation } from './main.js'
 
 const todoAddButton = document.querySelector('[data-todo-add]')
 const todoList = document.querySelector('[data-todo-ul]')

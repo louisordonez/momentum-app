@@ -1,4 +1,4 @@
-import { addBackgroundTransition, addAnimation } from './fade.js'
+import { addBackgroundTransition, addAnimation } from './main.js'
 
 const settingsMenu = document.querySelector('[data-settings-menu]')
 const settingsButton = document.querySelector('div.settings button')

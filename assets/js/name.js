@@ -1,4 +1,4 @@
-import { addBackgroundTransition, addAnimation } from './fade.js'
+import { addBackgroundTransition, addAnimation } from './main.js'
 
 const nameInput = document.querySelector('[data-settings-menu-name-input]')
 const nameSubmit = document.querySelector('[data-settings-menu-name-submit]')
