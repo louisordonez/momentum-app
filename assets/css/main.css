@@ -359,6 +359,9 @@ li {
   color: #dc3545 !important;
 }
 
+.focus-input-container {
+  margin-top: 4vmin;
+}
 .focus-input-container input[type=text] {
   font-size: 4.3vmin;
   text-align: center;
