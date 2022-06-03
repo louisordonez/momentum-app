@@ -8,11 +8,13 @@ const nameLocalStorageKey = 'name'
 nameSubmit.addEventListener('click', () => {
   let nameInputValue = nameInput.value
 
-  nameInputValue === ''
-    ? alert('Field cannot be empty.')
-    : (localStorage.setItem(nameLocalStorageKey, nameInputValue),
-      getName(nameInputValue),
-      alert('Submitted successfully.'))
+  if (nameInputValue === '') {
+    alert('Field cannot be empty.')
+  } else {
+    localStorage.setItem(nameLocalStorageKey, nameInputValue)
+    getName(nameInputValue)
+    alert('Submitted successfully.')
+  }
 })
 
 const getName = (item) => {
