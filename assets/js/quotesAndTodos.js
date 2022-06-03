@@ -54,6 +54,10 @@ const newItem = (ul, input, array) => {
   const liCreate = document.createElement('li')
   const removeButton = document.createElement('i')
   const todoItems = document.querySelectorAll('[data-todo-item]')
+  const quoteItems = document.querySelectorAll('[data-quote-item]')
+  let items
+
+  ul === todoList ? (items = todoItems) : (items = quoteItems)
 
   const checkIfExisting = (list, text) => {
     const continueAdd = () => {
@@ -88,7 +92,6 @@ const newItem = (ul, input, array) => {
         let inputText = text
         let inputTextUpper = inputText.toUpperCase()
         let inputTextReplace = inputTextUpper.replaceAll(' ', '')
-
         if (listTextReplace == inputTextReplace) {
           alert('This item already exists.')
           break
@@ -101,7 +104,7 @@ const newItem = (ul, input, array) => {
     }
   }
 
-  checkIfExisting(todoItems, inputValue)
+  checkIfExisting(items, inputValue)
 }
 
 const removeFromList = (arr, i) => {
