@@ -63,6 +63,10 @@ li {
     opacity: 1;
   }
 }
+.quote-input-container div, .name-input-container div {
+  margin-top: 2vmin;
+}
+
 .settings button {
   color: #fff;
   border: none;
@@ -108,14 +112,11 @@ li {
   border-bottom: 0.5vmin solid #000;
   width: 90%;
 }
-.name-input-container div {
-  margin-top: 2vmin;
-}
 .name-input-container div button {
   font-size: 2vmin;
   background-color: #198754;
   color: white !important;
-  padding: 1.4vmin 2vmin;
+  padding: 2vmin 2vmin;
   margin: 0.8vmin 0;
   border: none;
   border-radius: 0.4vmin;
@@ -138,22 +139,6 @@ li {
   border-bottom: 0.5vmin solid #000;
   width: 90%;
   width: 85%;
-}
-.quote-input-container div {
-  margin-top: 2vmin;
-}
-.quote-input-container div button {
-  font-size: 2vmin;
-  background-color: #198754;
-  color: white !important;
-  padding: 1.4vmin 2vmin;
-  margin: 0.8vmin 0;
-  border: none;
-  border-radius: 0.4vmin;
-  width: 90%;
-}
-.quote-input-container div button:hover {
-  background-color: #157347;
 }
 .quote-input-container h2 {
   color: #000;
@@ -302,19 +287,6 @@ li {
 }
 .todo-input-container div {
   margin-top: 2vmin;
-}
-.todo-input-container div button {
-  font-size: 2vmin;
-  background-color: #198754;
-  color: white !important;
-  padding: 1.4vmin 2vmin;
-  margin: 0.8vmin 0;
-  border: none;
-  border-radius: 0.4vmin;
-  width: 90%;
-}
-.todo-input-container div button:hover {
-  background-color: #157347;
 }
 .todo-input-container h2 {
   color: #000;

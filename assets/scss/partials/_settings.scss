@@ -1,6 +1,10 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+%div-default-margin {
+  margin-top: 2vmin;
+}
+
 .settings {
   @include i-button-style;
 
@@ -27,9 +31,22 @@
   }
 
   div {
-    @include menu-submit-btn;
+    @extend %div-default-margin;
 
-    margin-top: 2vmin;
+    button {
+      font-size: 2vmin;
+      background-color: $green;
+      color: white !important;
+      padding: 2vmin 2vmin;
+      margin: 0.8vmin 0;
+      border: none;
+      border-radius: 0.4vmin;
+      width: 90%;
+
+      &:hover {
+        background-color: $green-hover;
+      }
+    }
   }
 }
 
@@ -43,9 +60,7 @@
   }
 
   div {
-    @include menu-submit-btn;
-
-    margin-top: 2vmin;
+    @extend %div-default-margin;
   }
 
   h2 {
