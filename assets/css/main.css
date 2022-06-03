@@ -339,9 +339,6 @@ li {
 .todo-list li:hover {
   background: #dee2e6 !important;
 }
-.todo-list li .fa-circle-minus:before {
-  content: "\f05d" !important;
-}
 .todo-list li .remove:hover {
   color: #198754 !important;
 }
