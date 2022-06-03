@@ -1,5 +1,3 @@
-import { addBackgroundTransition } from './main.js'
-
 const nameInput = document.querySelector('[data-settings-menu-name-input]')
 const nameSubmit = document.querySelector('[data-settings-menu-name-submit]')
 const nameText = document.querySelector('[data-name]')

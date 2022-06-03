@@ -1,5 +1,3 @@
-import { addBackgroundTransition } from './main.js'
-
 const focusToday = document.querySelector('[data-focus-today-header]')
 const focusInput = document.querySelector('div.focus-input-container input[type=text')
 const focusText = document.querySelector('[data-focus-text]')

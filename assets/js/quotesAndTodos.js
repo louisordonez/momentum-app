@@ -1,5 +1,3 @@
-import { addBackgroundTransition } from './main.js'
-
 const todoAddButton = document.querySelector('[data-todo-add]')
 const todoList = document.querySelector('[data-todo-ul]')
 const todoItems = document.querySelectorAll('[data-todo-item]')
@@ -21,21 +19,6 @@ const addListItem = (ul, button, input) => {
       newItem(ul, input, parseArray(ul))
     }
   })
-}
-
-const addRemoveButton = (element) => {
-  for (let i = 0; i < element.length; i++) {
-    const removeButton = document.createElement('i')
-    let itemValue = element[i].textContent
-    let itemStoredTextContent = document.createTextNode(itemValue)
-
-    removeButton.classList.add('fa-solid')
-    ul === todoList ? removeButton.classList.add('fa-circle-check') : removeButton.classList.add('fa-circle-minus')
-    removeButton.classList.add('remove')
-    element[i].textContent = ''
-    element[i].appendChild(removeButton)
-    element[i].appendChild(itemStoredTextContent)
-  }
 }
 
 function removeItem(element) {
@@ -162,8 +145,6 @@ const showRandomQuote = (array) => {
 }
 
 window.addEventListener('load', function () {
-  addRemoveButton(quoteItems)
-  addRemoveButton(todoItems)
   showListItems(todoList, parseArray(todoList))
   showListItems(quoteList, parseArray(quoteList))
   showRandomQuote(parseArray(quoteList))
