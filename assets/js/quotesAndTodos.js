@@ -48,7 +48,10 @@ function removeItem(element) {
       let text = div.textContent
 
       removeFromList(key, text)
-      div.style.display = 'none'
+      div.remove()
+      if (key === 'quotes') {
+        showRandomQuote(parseArray(quoteList))
+      }
     }
   }
 }
