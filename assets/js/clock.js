@@ -32,7 +32,6 @@ const setGreeting = (time) => {
       return 'Good evening, '
     }
   }
-
   greetingElement.textContent = checkGreetingTime(time)
 }
 
@@ -58,16 +57,15 @@ const setBackground = (time) => {
       return `url('./assets/img/bg-evening.png')`
     }
   }
-
   addBackgroundTransition(body)
   body.style.backgroundImage = checkBackgroundTime(time)
 }
 
-const setTimeInterval = setInterval(() => {
-  let times = getTime()
+setInterval(() => {
+  const { currentRegularTime, currentMilitaryTime } = getTime()
 
   getTime()
-  setClock(times.currentRegularTime)
-  setGreeting(times.currentMilitaryTime)
-  setBackground(times.currentMilitaryTime)
+  setClock(currentRegularTime)
+  setGreeting(currentMilitaryTime)
+  setBackground(currentMilitaryTime)
 }, 1000)

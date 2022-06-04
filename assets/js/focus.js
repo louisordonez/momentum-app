@@ -2,27 +2,29 @@ const focusToday = document.querySelector('[data-focus-today-header]')
 const focusInput = document.querySelector('div.focus-input-container input[type=text')
 const focusText = document.querySelector('[data-focus-text]')
 const focusRemoveButton = document.querySelector('div.focus-input-container button')
-const focusLocalStorageKey = 'focus'
+
+const HIDE_CLASS = 'hide'
+const FOCUS_KEY = 'focus'
 
 focusInput.addEventListener('keypress', (e) => {
   let focusInputValue = focusInput.value
 
   if (e.key === 'Enter') {
-    localStorage.setItem(focusLocalStorageKey, focusInputValue)
-    getFocus(focusLocalStorageKey)
+    localStorage.setItem(FOCUS_KEY, focusInputValue)
+    getFocus(FOCUS_KEY)
   }
 })
 
 focusRemoveButton.addEventListener('click', () => {
-  localStorage.removeItem(focusLocalStorageKey)
+  localStorage.removeItem(FOCUS_KEY)
   focusElementsToggle()
   focusToday.textContent = 'What is your main focus for today?'
   focusToday.style.fontWeight = 'normal'
   focusInput.value = ''
 })
 
-const getFocus = (itemKey) => {
-  let focusItem = localStorage.getItem(itemKey)
+const getFocus = (key) => {
+  let focusItem = localStorage.getItem(key)
 
   if (focusItem !== null) {
     focusElementsToggle()
@@ -33,9 +35,9 @@ const getFocus = (itemKey) => {
 }
 
 const focusElementsToggle = () => {
-  focusInput.classList.toggle('hide')
-  focusText.classList.toggle('hide')
-  focusRemoveButton.classList.toggle('hide')
+  focusInput.classList.toggle(HIDE_CLASS)
+  focusText.classList.toggle(HIDE_CLASS)
+  focusRemoveButton.classList.toggle(HIDE_CLASS)
 }
 
-getFocus(focusLocalStorageKey)
+getFocus(FOCUS_KEY)
