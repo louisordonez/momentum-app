@@ -1,27 +1,32 @@
 const todoAddButton = document.querySelector('[data-todo-add]')
-const todoList = document.querySelector('[data-todo-ul]')
+const todoUl = document.querySelector('[data-todo-ul]')
 const todoItems = document.querySelectorAll('[data-todo-item]')
 const todoInput = document.querySelector('[data-todo-input]')
 const todoRemove = document.getElementsByClassName('fa-circle-check')
 const quoteAddButton = document.querySelector('[data-quote-add]')
-const quoteList = document.querySelector('[data-quote-ul]')
+const quoteUl = document.querySelector('[data-quote-ul]')
 const quoteItems = document.querySelectorAll('[data-quote-item]')
 const quoteInput = document.querySelector('[data-quote-input]')
 const quoteRemove = document.getElementsByClassName('fa-circle-minus')
 const quoteText = document.querySelector('[data-quote]')
 
-const addListItem = (ul, button, input) => {
+const TODO_LIST = 'todo'
+const TODO_KEY = 'todos'
+const QUOTE_LIST = 'quote'
+const QUOTE_KEY = 'quotes'
+
+const addListItem = (list, button, input) => {
   button.addEventListener('click', () => {
-    if (ul === todoList) {
-      newItem(ul, input, parseArray(ul))
+    if (list === TODO_LIST) {
+      newItem(list, input, parseList(list))
     } else {
-      newItem(ul, input, parseArray(ul))
-      showRandomQuote(parseArray(ul))
+      newItem(list, input, parseList(list))
+      showRandomQuote(parseList(list))
     }
   })
 }
 
-const newItem = (ul, input, array) => {
+const newItem = (list, input, array) => {
   let inputValue = input.value
   const inputTextNode = document.createTextNode(inputValue)
   const liCreate = document.createElement('li')
@@ -30,7 +35,7 @@ const newItem = (ul, input, array) => {
   if (inputValue === '') {
     alert('Field cannot be empty.')
   } else {
-    if (ul === todoList) {
+    if (list === TODO_LIST) {
       removeButton.classList.add('fa-circle-check')
       liCreate.setAttribute('data-todo-item', '')
     } else {
@@ -41,42 +46,55 @@ const newItem = (ul, input, array) => {
     removeButton.classList.add('remove')
     liCreate.appendChild(removeButton)
     liCreate.appendChild(inputTextNode)
-    ul.appendChild(liCreate)
+    list === TODO_LIST ? todoUl.appendChild(liCreate) : quoteUl.appendChild(liCreate)
     array.push(inputValue)
-    ul === todoList
-      ? localStorage.setItem('todos', JSON.stringify(array))
-      : localStorage.setItem('quotes', JSON.stringify(array))
+    list === TODO_LIST
+      ? localStorage.setItem(TODO_KEY, JSON.stringify(array))
+      : localStorage.setItem(QUOTE_KEY, JSON.stringify(array))
   }
   input.value = ''
-  ul === todoList ? removeItem(todoRemove) : removeItem(quoteRemove)
+  if (list === TODO_LIST) {
+    removeItem(TODO_LIST)
+  } else {
+    removeItem(QUOTE_LIST)
+  }
 }
 
-function removeItem(element) {
+function removeItem(list) {
   let key
+  let removeButton
 
-  element === todoRemove ? (key = 'todos') : (key = 'quotes')
-  for (let i = 0; i < element.length; i++) {
-    element[i].onclick = function () {
+  if (list === TODO_LIST) {
+    key = TODO_KEY
+    removeButton = todoRemove
+  } else {
+    key = QUOTE_KEY
+    removeButton = quoteRemove
+  }
+  for (let i = 0; i < removeButton.length; i++) {
+    removeButton[i].onclick = function () {
       let div = this.parentElement
       let text = div.textContent
 
       const removeFromList = (key, value) => {
-        let listArray = JSON.parse(localStorage.getItem(key))
-        let itemIndex = listArray.indexOf(value)
+        let list = JSON.parse(localStorage.getItem(key))
+        let itemIndex = list.indexOf(value)
 
-        listArray.splice(itemIndex, 1)
-        key === 'todos'
-          ? localStorage.setItem('todos', JSON.stringify(listArray))
-          : localStorage.setItem('quotes', JSON.stringify(listArray))
+        list.splice(itemIndex, 1)
+        key === TODO_KEY
+          ? localStorage.setItem(TODO_KEY, JSON.stringify(list))
+          : localStorage.setItem(QUOTE_KEY, JSON.stringify(list))
       }
       removeFromList(key, text)
       div.remove()
-      key === 'quotes' ? showRandomQuote(parseArray(quoteList)) : false
+      if (key === QUOTE_KEY) {
+        showRandomQuote(parseList(QUOTE_LIST))
+      }
     }
   }
 }
 
-const showListItems = (ul, array) => {
+const showListItems = (list, array) => {
   if (array.length !== 0) {
     for (let i = 0; i < array.length; i++) {
       let inputValue = array[i]
@@ -84,7 +102,7 @@ const showListItems = (ul, array) => {
       const liCreate = document.createElement('li')
       const removeButton = document.createElement('i')
 
-      if (ul === todoList) {
+      if (list === TODO_LIST) {
         removeButton.classList.add('fa-circle-check')
         liCreate.setAttribute('data-todo-item', '')
       } else {
@@ -95,43 +113,49 @@ const showListItems = (ul, array) => {
       removeButton.classList.add('remove')
       liCreate.appendChild(removeButton)
       liCreate.appendChild(inputTextNode)
-      ul.appendChild(liCreate)
+      if (list === TODO_LIST) {
+        todoUl.appendChild(liCreate)
+        removeItem(todoRemove)
+      } else {
+        quoteUl.appendChild(liCreate)
+        removeItem(quoteRemove)
+      }
     }
   }
 }
 
-const parseArray = (ul) => {
-  let itemsArray
+const parseList = (list) => {
+  let items
 
-  ul === todoList ? (itemsArray = localStorage.getItem('todos')) : (itemsArray = localStorage.getItem('quotes'))
-  itemsArray = JSON.parse(itemsArray)
-  if (itemsArray !== null) {
-    return itemsArray
+  list === TODO_LIST ? (items = localStorage.getItem(TODO_KEY)) : (items = localStorage.getItem(QUOTE_KEY))
+  items = JSON.parse(items)
+  if (items !== null) {
+    return items
   } else {
-    let emptyArr = []
+    let emptyArray = []
 
-    return emptyArr
+    return emptyArray
   }
 }
 
 const showRandomQuote = (array) => {
   if (array.length !== 0) {
-    let arrayIndex = Math.floor(Math.random() * array.length)
+    let i = Math.floor(Math.random() * array.length)
 
     quoteText.classList.toggle('quote-fade-animation')
-    quoteText.textContent = array[arrayIndex]
+    quoteText.textContent = array[i]
   } else {
     quoteText.textContent = ''
   }
 }
 
 window.addEventListener('load', function () {
-  showListItems(todoList, parseArray(todoList))
-  showListItems(quoteList, parseArray(quoteList))
+  showListItems(TODO_LIST, parseList(TODO_LIST))
+  showListItems(QUOTE_LIST, parseList(QUOTE_LIST))
   removeItem(quoteRemove)
   removeItem(todoRemove)
-  showRandomQuote(parseArray(quoteList))
+  showRandomQuote(parseList(QUOTE_LIST))
 })
 
-addListItem(quoteList, quoteAddButton, quoteInput)
-addListItem(todoList, todoAddButton, todoInput)
+addListItem(QUOTE_LIST, quoteAddButton, quoteInput)
+addListItem(TODO_LIST, todoAddButton, todoInput)
