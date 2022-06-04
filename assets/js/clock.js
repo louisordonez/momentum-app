@@ -64,10 +64,10 @@ const setBackground = (time) => {
 }
 
 const setTimeInterval = setInterval(() => {
-  let times = getTime()
+  const { currentRegularTime, currentMilitaryTime } = getTime()
 
   getTime()
-  setClock(times.currentRegularTime)
-  setGreeting(times.currentMilitaryTime)
-  setBackground(times.currentMilitaryTime)
+  setClock(currentRegularTime)
+  setGreeting(currentMilitaryTime)
+  setBackground(currentMilitaryTime)
 }, 1000)
