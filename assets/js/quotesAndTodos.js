@@ -143,7 +143,7 @@ const showRandomQuote = (array) => {
     let i = Math.floor(Math.random() * array.length)
 
     quoteText.classList.toggle('quote-fade-animation')
-    quoteText.textContent = array[i]
+    quoteText.textContent = `“${array[i]}”`
   } else {
     quoteText.textContent = ''
   }
