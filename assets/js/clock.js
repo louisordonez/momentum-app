@@ -1,4 +1,4 @@
-import { addBackgroundTransition } from './main.js'
+import { addBackgroundTransition } from './animation.js'
 
 const clockElement = document.querySelector('[data-clock]')
 const greetingElement = document.querySelector('[data-greeting]')
